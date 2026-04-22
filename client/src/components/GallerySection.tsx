@@ -1,9 +1,11 @@
 /* ============================================================
    GallerySection — Oklahoma Craftsman Design
    Masonry-style photo grid with hover captions
+   Click to open full-size image in modal
    ============================================================ */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 const RETAINING_WALL_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_retaining_wall-mGSERXMZhtZqA9EoVGfFbh.webp";
 const LAWN_CARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_lawn_care-LtBfYjKFirKQnydPLnTRnc.webp";
@@ -29,6 +31,8 @@ const galleryItems = [
 
 export default function GallerySection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,6 +51,19 @@ export default function GallerySection() {
     return () => observer.disconnect();
   }, []);
 
+  const handleImageClick = (index: number) => {
+    setSelectedIndex(index);
+    setModalOpen(true);
+  };
+
+  const handlePrev = () => {
+    setSelectedIndex((prev) => (prev === 0 ? galleryItems.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setSelectedIndex((prev) => (prev === galleryItems.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section id="gallery" className="py-20 bg-[oklch(0.97_0.015_80)]" ref={sectionRef}>
       <div className="container mx-auto">
@@ -60,7 +77,7 @@ export default function GallerySection() {
           </h2>
           <p className="font-body text-lg text-[oklch(0.45_0.04_55)] max-w-2xl mx-auto">
             Browse a selection of our recent landscaping projects across Durant
-            and the surrounding communities of Bryan County.
+            and the surrounding communities of Bryan County. Click any image to view full-size.
           </p>
           <div className="w-16 h-1 bg-[oklch(0.72_0.12_75)] mx-auto mt-6 rounded-full" />
         </div>
@@ -73,6 +90,7 @@ export default function GallerySection() {
               className={`fade-up relative group overflow-hidden rounded-lg cursor-pointer ${
                 item.tall ? "row-span-2" : "row-span-1"
               }`}
+              onClick={() => handleImageClick(index)}
             >
               <img
                 src={item.src}
@@ -84,6 +102,9 @@ export default function GallerySection() {
                 <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                   <p className="font-display text-white font-semibold text-sm">
                     {item.caption}
+                  </p>
+                  <p className="font-body text-white/70 text-xs mt-1">
+                    Click to view
                   </p>
                 </div>
               </div>
@@ -104,6 +125,16 @@ export default function GallerySection() {
           </a>
         </div>
       </div>
+
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={modalOpen}
+        image={galleryItems[selectedIndex]?.src || null}
+        caption={galleryItems[selectedIndex]?.caption || ""}
+        onClose={() => setModalOpen(false)}
+        onPrev={handlePrev}
+        onNext={handleNext}
+      />
     </section>
   );
 }
