@@ -15,7 +15,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjD
 
 // Unsplash landscaping images for gallery variety
 const PATIO_IMG = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80";
-const SOD_IMG = "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80";
+const CUSTOM_WALL_IMG = "/manus-storage/484870302_1197614712156182_8826142775724406335_n_f119768d.jpg";
 const WALKWAY_IMG = "/manus-storage/83882309_3397071477034882_4546240625325899776_n_8759ed07.jpg";
 
 const galleryItems = [
@@ -25,7 +25,7 @@ const galleryItems = [
   { src: LANDSCAPE_DESIGN_IMG, caption: "Custom Landscape Design", tall: true },
   { src: SPRINKLER_IMG, caption: "Irrigation System", tall: false },
   { src: PATIO_IMG, caption: "Patio & Hardscape", tall: false },
-  { src: SOD_IMG, caption: "Sod Installation", tall: false },
+  { src: CUSTOM_WALL_IMG, caption: "Custom Wall Design", tall: false },
   { src: WALKWAY_IMG, caption: "Stone Walkway", tall: false },
 ];
 
