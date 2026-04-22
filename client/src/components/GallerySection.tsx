@@ -16,7 +16,7 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjD
 // Unsplash landscaping images for gallery variety
 const PATIO_IMG = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80";
 const SOD_IMG = "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80";
-const WALKWAY_IMG = "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80";
+const WALKWAY_IMG = "/manus-storage/83882309_3397071477034882_4546240625325899776_n_8759ed07.jpg";
 
 const galleryItems = [
   { src: HERO_IMG, caption: "Residential Landscape Design", tall: true },
