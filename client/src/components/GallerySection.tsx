@@ -14,7 +14,7 @@ const SPRINKLER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/hero_main-RVrQzWXfQspiWKdLdp59g5.webp";
 
 // Unsplash landscaping images for gallery variety
-const PATIO_IMG = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80";
+const CHRISTMAS_LIGHTS_IMG = "/manus-storage/594910348_1409381290979522_1381582364583980021_n_188a2a98.webp";
 const CUSTOM_WALL_IMG = "/manus-storage/484870302_1197614712156182_8826142775724406335_n_f119768d.jpg";
 const WALKWAY_IMG = "/manus-storage/83882309_3397071477034882_4546240625325899776_n_8759ed07.jpg";
 
@@ -24,7 +24,7 @@ const galleryItems = [
   { src: LAWN_CARE_IMG, caption: "Professional Lawn Care", tall: false },
   { src: LANDSCAPE_DESIGN_IMG, caption: "Custom Landscape Design", tall: true },
   { src: SPRINKLER_IMG, caption: "Irrigation System", tall: false },
-  { src: PATIO_IMG, caption: "Patio & Hardscape", tall: false },
+  { src: CHRISTMAS_LIGHTS_IMG, caption: "Christmas Light Installation", tall: false },
   { src: CUSTOM_WALL_IMG, caption: "Custom Wall Design", tall: false },
   { src: WALKWAY_IMG, caption: "Stone Walkway", tall: false },
 ];
