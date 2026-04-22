@@ -3,7 +3,7 @@
    Sticky top nav, forest green background on scroll
    ============================================================ */
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Leaf } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -44,11 +44,8 @@ export default function Navbar() {
           onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
           className="flex items-center gap-2 group"
         >
-          <div className="w-10 h-10 rounded-full bg-[oklch(0.72_0.12_75)] flex items-center justify-center shadow-md">
-            <Leaf className="w-5 h-5 text-[oklch(0.18_0.07_145)]" strokeWidth={2.5} />
-          </div>
           <div>
-            <span className="font-display font-bold text-xl text-white leading-none block">
+            <span className="font-display font-bold text-2xl text-white leading-none block">
               2B Landscaping
             </span>
             <span className="text-[oklch(0.85_0.10_75)] text-xs font-body tracking-wider">
