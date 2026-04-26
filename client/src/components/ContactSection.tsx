@@ -5,6 +5,8 @@
    ============================================================ */
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Facebook, Clock, Send, CheckCircle } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 export default function ContactSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -34,10 +36,24 @@ export default function ContactSection() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendEstimate = trpc.contact.sendEstimate.useMutation();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real deployment, this would send to a backend or email service
-    setSubmitted(true);
+    try {
+      await sendEstimate.mutateAsync({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        service: formData.service,
+        message: formData.message,
+      });
+      setSubmitted(true);
+      toast.success("Estimate request sent! We'll contact you soon.");
+    } catch (error) {
+      toast.error("Failed to send estimate request. Please try again or call us.");
+      console.error("Error sending estimate:", error);
+    }
   };
 
   const handleChange = (
@@ -268,10 +284,11 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[oklch(0.28_0.08_145)] hover:bg-[oklch(0.38_0.09_145)] text-white font-body font-semibold py-3.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-base"
+                  disabled={sendEstimate.isPending}
+                  className="w-full flex items-center justify-center gap-2 bg-[oklch(0.28_0.08_145)] hover:bg-[oklch(0.38_0.09_145)] disabled:opacity-50 disabled:cursor-not-allowed text-white font-body font-semibold py-3.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-base"
                 >
                   <Send className="w-4 h-4" />
-                  Send My Request
+                  {sendEstimate.isPending ? "Sending..." : "Send My Request"}
                 </button>
 
                 <p className="font-body text-xs text-[oklch(0.52_0.04_55)] text-center">

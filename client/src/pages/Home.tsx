@@ -3,6 +3,7 @@
    Oklahoma Craftsman Design System
    Sections: Hero → Services → About → WhyChooseUs → Gallery → Contact → Footer
    ============================================================ */
+import { useAuth } from "@/_core/hooks/useAuth";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -14,6 +15,10 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  // The userAuth hooks provides authentication state
+  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   return (
     <div className="min-h-screen bg-[oklch(0.97_0.015_80)] overflow-x-hidden">
       <Navbar />
