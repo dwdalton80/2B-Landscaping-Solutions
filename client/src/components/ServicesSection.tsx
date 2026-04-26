@@ -3,7 +3,7 @@
    Staggered card grid with hover photo reveals
    ============================================================ */
 import { useEffect, useRef } from "react";
-import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench } from "lucide-react";
+import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench, Lightbulb } from "lucide-react";
 
 const LAWN_CARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_lawn_care-LtBfYjKFirKQnydPLnTRnc.webp";
 const LANDSCAPE_DESIGN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_landscape_design-WjNbJhkGrifXBVVZ3zmuAG.webp";
@@ -72,6 +72,14 @@ const services = [
     title: "Masonry",
     description:
       "Skilled masonry work including stone walls, decorative features, and structural elements for your property.",
+    image: null,
+    featured: false,
+  },
+  {
+    icon: Lightbulb,
+    title: "Christmas Light Installation",
+    description:
+      "Professional holiday lighting design and installation to transform your home into a festive masterpiece with beautiful, energy-efficient LED lights.",
     image: null,
     featured: false,
   },

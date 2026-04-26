@@ -89,6 +89,19 @@ export default function ContactSection() {
           <div className="w-16 h-1 bg-[oklch(0.72_0.12_75)] mx-auto mt-6 rounded-full" />
         </div>
 
+        {/* Google Map */}
+        <div className="fade-up mb-12 rounded-xl overflow-hidden shadow-lg h-96">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.4567890123456!2d-96.3857!3d33.9425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c1b8c8c8c8c8d%3A0x8c8c8c8c8c8c8c8c!2sDurant%2C%20OK%2074701!5e0!3m2!1sen!2sus!4v1234567890"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
@@ -263,6 +276,7 @@ export default function ContactSection() {
                     <option value="walkways">Walkways</option>
                     <option value="sod">Sod Installation</option>
                     <option value="masonry">Masonry</option>
+                    <option value="christmas-lights">Christmas Light Installation</option>
                     <option value="other">Other / Multiple Services</option>
                   </select>
                 </div>
