@@ -51,7 +51,7 @@ export default function Navbar() {
           />
           <div className="hidden sm:block">
             <span className="font-display font-bold text-lg text-white leading-none block">
-              Landscaping
+              Landscape Designs
             </span>
           </div>
         </a>
