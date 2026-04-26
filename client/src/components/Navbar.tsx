@@ -42,13 +42,18 @@ export default function Navbar() {
         <a
           href="#home"
           onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-3 group"
         >
           <img
             src="/manus-storage/Untitleddesign_bd037097.png"
             alt="2B Landscaping Logo"
             className="h-14 w-auto"
           />
+          <div className="hidden sm:block">
+            <span className="font-display font-bold text-lg text-white leading-none block">
+              Landscape Designs
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav */}
