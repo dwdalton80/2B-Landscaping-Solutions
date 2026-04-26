@@ -11,7 +11,7 @@ const RETAINING_WALL_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/31051966358538
 const LAWN_CARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_lawn_care-LtBfYjKFirKQnydPLnTRnc.webp";
 const LANDSCAPE_DESIGN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_landscape_design-WjNbJhkGrifXBVVZ3zmuAG.webp";
 const SPRINKLER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_sprinkler-HgRzTY6bGy97te8ireADur.webp";
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/hero_main-RVrQzWXfQspiWKdLdp59g5.webp";
+const HERO_IMG = "/manus-storage/IMG_3341_d38d8cf6.JPG";
 
 // Unsplash landscaping images for gallery variety
 const CHRISTMAS_LIGHTS_IMG = "/manus-storage/594910348_1409381290979522_1381582364583980021_n_188a2a98.webp";
