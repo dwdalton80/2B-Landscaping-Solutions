@@ -44,14 +44,11 @@ export default function Navbar() {
           onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
           className="flex items-center gap-2 group"
         >
-          <div>
-            <span className="font-display font-bold text-2xl text-white leading-none block">
-              2B Landscaping
-            </span>
-            <span className="text-[oklch(0.85_0.10_75)] text-xs font-body tracking-wider">
-              Durant, Oklahoma
-            </span>
-          </div>
+          <img
+            src="/manus-storage/Untitleddesign_bd037097.png"
+            alt="2B Landscaping Logo"
+            className="h-14 w-auto"
+          />
         </a>
 
         {/* Desktop Nav */}
