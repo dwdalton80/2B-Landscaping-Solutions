@@ -2,7 +2,7 @@
    Footer — Oklahoma Craftsman Design
    Dark forest green footer with amber accents
    ============================================================ */
-import { Phone, Mail, MapPin, Facebook, Leaf } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook } from "lucide-react";
 
 const services = [
   "Lawn Care & Maintenance",
@@ -41,13 +41,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-[oklch(0.72_0.12_75)] flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-[oklch(0.18_0.07_145)]" strokeWidth={2.5} />
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <img
+                src="/manus-storage/Untitleddesign_bd037097.png"
+                alt="2B Landscaping Logo"
+                className="h-12 w-auto"
+              />
               <div>
-                <span className="font-display font-bold text-xl text-white leading-none block">
-                  2B Landscaping
+                <span className="font-display font-bold text-lg text-white leading-none block">
+                  Landscape Designs
                 </span>
                 <span className="text-[oklch(0.85_0.10_75)] text-xs font-body">
                   Durant, Oklahoma
