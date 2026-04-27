@@ -16,15 +16,15 @@ const services = [
     title: "Lawn Care & Maintenance",
     description:
       "Regular mowing, edging, trimming, and seasonal clean-ups to keep your lawn looking its best year-round.",
-    image: LAWN_CARE_IMG,
-    featured: true,
+    image: null,
+    featured: false,
   },
   {
     icon: TreePine,
     title: "Landscape Design",
     description:
       "Custom landscape designs that transform your outdoor space into a beautiful, functional environment tailored to your vision.",
-    image: LANDSCAPE_DESIGN_IMG,
+    image: null,
     featured: false,
   },
   {
@@ -32,7 +32,7 @@ const services = [
     title: "Retaining Walls",
     description:
       "Expertly built stone and block retaining walls that combine structural integrity with natural beauty.",
-    image: RETAINING_WALL_IMG,
+    image: null,
     featured: false,
   },
   {
@@ -40,7 +40,7 @@ const services = [
     title: "Sprinkler Installation",
     description:
       "Professional irrigation system design and installation to keep your lawn and gardens perfectly watered.",
-    image: SPRINKLER_IMG,
+    image: null,
     featured: false,
   },
   {
