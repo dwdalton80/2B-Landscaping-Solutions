@@ -49,7 +49,7 @@ export default function Footer() {
               />
               <div>
                 <span className="font-display font-bold text-lg text-white leading-none block">
-                  Landscape Designs
+                  Landscaping
                 </span>
                 <span className="text-[oklch(0.85_0.10_75)] text-xs font-body">
                   Durant, Oklahoma
