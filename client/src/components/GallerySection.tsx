@@ -15,7 +15,7 @@ const HERO_IMG = "/manus-storage/IMG_3341_d38d8cf6.JPG";
 
 // Unsplash landscaping images for gallery variety
 const CHRISTMAS_LIGHTS_IMG = "/manus-storage/594910348_1409381290979522_1381582364583980021_n_188a2a98.webp";
-const CUSTOM_WALL_IMG = "/manus-storage/484870302_1197614712156182_8826142775724406335_n_f119768d.jpg";
+const CUSTOM_WALL_IMG = "/manus-storage/F1E7E76F-89EC-4738-A027-C401920C2CA5_1f519685.PNG";
 const WALKWAY_IMG = "/manus-storage/83882309_3397071477034882_4546240625325899776_n_8759ed07.jpg";
 
 const galleryItems = [
