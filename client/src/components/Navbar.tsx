@@ -44,17 +44,19 @@ export default function Navbar() {
           onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
           className="flex items-center gap-2 sm:gap-3 group flex-shrink-0"
         >
-          <img
-            src="/manus-storage/Untitleddesign_bd037097.png"
-            alt="2B Landscaping Logo"
-            className="h-10 sm:h-12 md:h-14 w-auto flex-shrink-0"
-            loading="eager"
-          />
-          <div className="hidden sm:block">
-            <span className="font-display font-bold text-sm sm:text-base md:text-lg text-white leading-none block">
-              Landscaping
-            </span>
-          </div>
+          <picture>
+            <source srcSet="/manus-storage/logo-mobile_8d28475a.webp" media="(max-width: 640px)" type="image/webp" />
+            <source srcSet="/manus-storage/logo-optimized_d414109b.webp" type="image/webp" />
+            <img
+              src="/manus-storage/logo-optimized_d414109b.webp"
+              alt="2B Landscaping Logo"
+              className="h-10 sm:h-12 md:h-14 w-auto flex-shrink-0"
+              loading="eager"
+            />
+          </picture>
+          <span className="font-display font-bold text-xs sm:text-sm md:text-base text-white leading-none block">
+            Landscaping
+          </span>
         </a>
 
         {/* Desktop Nav */}
