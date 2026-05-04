@@ -54,7 +54,7 @@ export default function Navbar() {
               loading="eager"
             />
           </picture>
-          <span className="font-display font-bold text-xs sm:text-sm md:text-base text-white leading-none block">
+          <span className="font-display font-bold text-sm sm:text-base md:text-lg text-white leading-none block">
             Landscaping
           </span>
         </a>
