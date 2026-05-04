@@ -7,16 +7,16 @@ import { useEffect, useRef, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import ImageModal from "./ImageModal";
 
-const RETAINING_WALL_IMG = "/manus-storage/IMG_3344_ee731dce.PNG";
-const LAWN_CARE_IMG = "/manus-storage/professionallawncare_2b51d78a.jpg";
+const RETAINING_WALL_IMG = "/manus-storage/IMG_3344_ee731dce_optimized_443bae81.webp";
+const LAWN_CARE_IMG = "/manus-storage/professionallawncare_2b51d78a_optimized_2c94c7a1.webp";
 const LANDSCAPE_DESIGN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_landscape_design-WjNbJhkGrifXBVVZ3zmuAG.webp";
 const SPRINKLER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_sprinkler-HgRzTY6bGy97te8ireADur.webp";
-const HERO_IMG = "/manus-storage/IMG_3341_d38d8cf6.JPG";
+const HERO_IMG = "/manus-storage/IMG_3341_d38d8cf6_optimized_58dc5a48.webp";
 
 // Unsplash landscaping images for gallery variety
-const CHRISTMAS_LIGHTS_IMG = "/manus-storage/594910348_1409381290979522_1381582364583980021_n_188a2a98.webp";
-const CUSTOM_WALL_IMG = "/manus-storage/F1E7E76F-89EC-4738-A027-C401920C2CA5_1f519685.PNG";
-const WALKWAY_IMG = "/manus-storage/83882309_3397071477034882_4546240625325899776_n_8759ed07.jpg";
+const CHRISTMAS_LIGHTS_IMG = "/manus-storage/594910348_1409381290979522_1381582364583980021_n_188a2a98_optimized_0c7137b5.webp";
+const CUSTOM_WALL_IMG = "/manus-storage/F1E7E76F-89EC-4738-A027-C401920C2CA5_1f519685_optimized_9bc8a006.webp";
+const WALKWAY_IMG = "/manus-storage/83882309_3397071477034882_4546240625325899776_n_8759ed07_optimized_ce8eb91b.webp";
 
 const galleryItems = [
   { src: HERO_IMG, caption: "Residential Landscape Design", tall: true },
