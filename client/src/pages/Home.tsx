@@ -5,6 +5,7 @@
    ============================================================ */
 import React from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
+import { setOGTags } from "@/lib/og-tags";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -20,9 +21,10 @@ export default function Home() {
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
 
-  // Set SEO title
+  // Set SEO title and Open Graph tags
   React.useEffect(() => {
     document.title = "2B Landscaping | Professional Lawn Care & Landscape Design in Durant, OK";
+    setOGTags("/");
   }, []);
 
   return (
