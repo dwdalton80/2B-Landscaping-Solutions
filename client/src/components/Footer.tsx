@@ -44,14 +44,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 flex-shrink-0">
               <img
                 src="/manus-storage/Untitleddesign_bd037097.png"
                 alt="2B Landscaping Logo"
-                className="h-12 w-auto"
+                className="h-10 sm:h-12 w-auto flex-shrink-0"
+                loading="eager"
               />
-              <div>
-                <span className="font-display font-bold text-lg text-white leading-none block">
+              <div className="min-w-0">
+                <span className="font-display font-bold text-sm sm:text-base md:text-lg text-white leading-none block">
                   Landscaping
                 </span>
                 <span className="text-[oklch(0.85_0.10_75)] text-xs font-body">
