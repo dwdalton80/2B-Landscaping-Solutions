@@ -3,7 +3,7 @@
    Staggered card grid with hover photo reveals
    ============================================================ */
 import { useEffect, useRef } from "react";
-import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench, Lightbulb } from "lucide-react";
+import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench, Lightbulb, Waves, Fish, Grid3x3 } from "lucide-react";
 
 const LAWN_CARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_lawn_care-LtBfYjKFirKQnydPLnTRnc.webp";
 const LANDSCAPE_DESIGN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_landscape_design-WjNbJhkGrifXBVVZ3zmuAG.webp";
@@ -80,6 +80,30 @@ const services = [
     title: "Christmas Light Installation",
     description:
       "Professional holiday lighting design and installation to transform your home into a festive masterpiece with beautiful, energy-efficient LED lights.",
+    image: null,
+    featured: false,
+  },
+  {
+    icon: Waves,
+    title: "Fountain Installation",
+    description:
+      "Beautiful water features and fountains that add elegance and tranquility to your outdoor space.",
+    image: null,
+    featured: false,
+  },
+  {
+    icon: Fish,
+    title: "Pond Scrapes",
+    description:
+      "Professional pond installation, maintenance, and cleaning to create a serene aquatic environment.",
+    image: null,
+    featured: false,
+  },
+  {
+    icon: Grid3x3,
+    title: "Artificial Turf Installation",
+    description:
+      "High-quality artificial turf installation for a lush, low-maintenance lawn that looks beautiful year-round.",
     image: null,
     featured: false,
   },

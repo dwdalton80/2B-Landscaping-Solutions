@@ -277,6 +277,9 @@ export default function ContactSection() {
                     <option value="sod">Sod Installation</option>
                     <option value="masonry">Masonry</option>
                     <option value="christmas-lights">Christmas Light Installation</option>
+                    <option value="fountain">Fountain Installation</option>
+                    <option value="pond">Pond Scrapes</option>
+                    <option value="artificial-turf">Artificial Turf Installation</option>
                     <option value="other">Other / Multiple Services</option>
                   </select>
                 </div>

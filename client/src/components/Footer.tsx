@@ -13,6 +13,9 @@ const services = [
   "Walkways",
   "Sod Installation",
   "Masonry",
+  "Fountain Installation",
+  "Pond Scrapes",
+  "Artificial Turf Installation",
 ];
 
 const navLinks = [
