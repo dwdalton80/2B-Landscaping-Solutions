@@ -15,7 +15,7 @@ export interface OGMetaTags {
 const DEFAULT_OG_TAGS: OGMetaTags = {
   title: "2B Landscaping | Professional Lawn Care & Landscape Design in Durant, OK",
   description:
-    "Transform your outdoor space with expert landscaping services in Durant, Oklahoma. 15+ years of professional lawn care, hardscapes, landscape design, and more. Free estimates!",
+    "Professional landscaping services in Durant, OK. Lawn care, design, hardscapes & more. 15+ years serving Bryan County.",
   image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/facebook-preview-2b-landscaping-v2-mgyY2gJDeiMF3j4UiPSYku.webp",
   url: "https://2blandscapingsolutions.com/",
   type: "website",

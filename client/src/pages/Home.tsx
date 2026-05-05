@@ -25,7 +25,7 @@ export default function Home() {
 
   // Set SEO title, Open Graph tags, and schema markup
   React.useEffect(() => {
-    document.title = "2B Landscaping | Professional Lawn Care & Landscape Design in Durant, OK";
+    document.title = "2B Landscaping | Lawn Care & Design in Durant, OK";
     setOGTags("/");
     
     // Add LocalBusiness schema for local SEO
