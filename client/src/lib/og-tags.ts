@@ -12,6 +12,7 @@ export interface OGMetaTags {
   siteName?: string;
 }
 
+// Force fresh deployment - cache buster
 const DEFAULT_OG_TAGS: OGMetaTags = {
   title: "2B Landscaping | Professional Lawn Care & Landscape Design in Durant, OK",
   description:
