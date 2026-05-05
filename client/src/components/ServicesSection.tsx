@@ -147,7 +147,7 @@ function ServiceCard({ service, index, onServiceClick }: { service: typeof servi
   return (
     <div
       ref={cardRef}
-      className="fade-up group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      className="fade-up group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer border-2 border-transparent hover:border-[oklch(0.72_0.12_75)]"
     >
       {/* Image or gradient background */}
       {service.image ? (
@@ -173,16 +173,29 @@ function ServiceCard({ service, index, onServiceClick }: { service: typeof servi
       )}
 
       <div className="p-4 sm:p-5 cursor-pointer" onClick={() => onServiceClick(service.id)}>
-        <h3 className="font-display text-base sm:text-lg font-semibold text-[oklch(0.22_0.04_55)] mb-2 group-hover:text-[oklch(0.28_0.08_145)] transition-colors">
-          {service.title}
-        </h3>
-        <p className="font-body text-xs sm:text-sm text-[oklch(0.45_0.04_55)] leading-relaxed">
-          {service.description}
-        </p>
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1">
+            <h3 className="font-display text-base sm:text-lg font-semibold text-[oklch(0.22_0.04_55)] mb-2 group-hover:text-[oklch(0.28_0.08_145)] transition-colors">
+              {service.title}
+            </h3>
+            <p className="font-body text-xs sm:text-sm text-[oklch(0.45_0.04_55)] leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+          {/* Arrow indicator */}
+          <div className="flex-shrink-0 mt-1 text-[oklch(0.72_0.12_75)] opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </div>
+        </div>
       </div>
 
       {/* Bottom accent line */}
-      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[oklch(0.72_0.12_75)] group-hover:w-full transition-all duration-300" />
+      <div className="absolute bottom-0 left-0 w-0 h-1 bg-[oklch(0.72_0.12_75)] group-hover:w-full transition-all duration-300" />
+      
+      {/* Hover background tint */}
+      <div className="absolute inset-0 bg-[oklch(0.72_0.12_75)] opacity-0 group-hover:opacity-3 transition-opacity duration-300 pointer-events-none" />
     </div>
   );
 }
