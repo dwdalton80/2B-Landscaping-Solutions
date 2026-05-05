@@ -178,9 +178,13 @@ function ServiceCard({ service, index, onServiceClick }: { service: typeof servi
             <h3 className="font-display text-base sm:text-lg font-semibold text-[oklch(0.22_0.04_55)] mb-2 group-hover:text-[oklch(0.28_0.08_145)] transition-colors">
               {service.title}
             </h3>
-            <p className="font-body text-xs sm:text-sm text-[oklch(0.45_0.04_55)] leading-relaxed">
+            <p className="font-body text-xs sm:text-sm text-[oklch(0.45_0.04_55)] leading-relaxed mb-3">
               {service.description}
             </p>
+            {/* Learn More label */}
+            <span className="font-body text-xs font-semibold text-[oklch(0.72_0.12_75)] opacity-0 group-hover:opacity-100 transform group-hover:translate-y-0 translate-y-1 transition-all duration-300 inline-block">
+              Learn More →
+            </span>
           </div>
           {/* Arrow indicator */}
           <div className="flex-shrink-0 mt-1 text-[oklch(0.72_0.12_75)] opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
