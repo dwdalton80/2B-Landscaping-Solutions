@@ -353,7 +353,10 @@ export function ServiceDetail() {
           <p className="text-gray-700 mb-6">
             Contact 2B Landscaping today for a free consultation and quote.
           </p>
-          <Button className="bg-[#d4a574] hover:bg-[#c49560] text-white px-8 py-3 text-lg">
+          <Button 
+            onClick={() => navigate("/#contact")}
+            className="bg-[#d4a574] hover:bg-[#c49560] text-white px-8 py-3 text-lg"
+          >
             Request a Quote
           </Button>
         </section>
