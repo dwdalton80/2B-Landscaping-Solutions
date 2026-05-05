@@ -1,6 +1,8 @@
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface ServicePageConfig {
   id: string;
@@ -419,18 +421,23 @@ export function ServiceDetail() {
 
   if (!service) {
     return (
-      <div className="min-h-screen bg-background text-foreground py-12">
-        <div className="container max-w-4xl">
-          <h1 className="text-3xl font-bold mb-4">Service Not Found</h1>
-          <p className="mb-6">The service you're looking for doesn't exist.</p>
-          <Button onClick={() => navigate("/")}>Back to Home</Button>
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Navbar />
+        <div className="py-12 flex-1">
+          <div className="container max-w-4xl">
+            <h1 className="text-3xl font-bold mb-4">Service Not Found</h1>
+            <p className="mb-6">The service you're looking for doesn't exist.</p>
+            <Button onClick={() => navigate("/")}>Back to Home</Button>
+          </div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <Navbar />
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#2d5f4f] to-[#1a3a2e] text-white py-12">
         <div className="container max-w-4xl">
@@ -440,9 +447,10 @@ export function ServiceDetail() {
       </div>
 
       {/* Main Content */}
-      <div className="container max-w-4xl py-12">
-        {/* Overview */}
-        <section className="mb-12">
+      <div className="flex-1">
+        <div className="container max-w-4xl py-12">
+          {/* Overview */}
+          <section className="mb-12">
           <h2 className="text-3xl font-bold mb-6">Overview</h2>
           <p className="text-lg text-gray-700 leading-relaxed">{service.description}</p>
         </section>
@@ -525,7 +533,9 @@ export function ServiceDetail() {
             </div>
           </section>
         )}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
