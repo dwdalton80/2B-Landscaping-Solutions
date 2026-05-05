@@ -12,3 +12,4 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://2blandscapingsolutions.com/sitemap.xml
+Sitemap: https://www.2blandscapingsolutions.com/sitemap.xml
