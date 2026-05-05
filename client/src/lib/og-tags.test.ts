@@ -24,7 +24,7 @@ describe("OG Tags Utility", () => {
 
     expect(titleTag?.getAttribute("content")).toContain("2B Landscaping");
     expect(descTag?.getAttribute("content")).toContain("Transform your outdoor space");
-    expect(imageTag?.getAttribute("content")).toContain("og-preview-home.jpg");
+    expect(imageTag?.getAttribute("content")).toContain("facebook-preview-2b-landscaping-v2");
     expect(typeTag?.getAttribute("content")).toBe("website");
   });
 
@@ -84,7 +84,7 @@ describe("OG Tags Utility", () => {
 
     expect(tags.title).toContain("2B Landscaping");
     expect(tags.description).toBeTruthy();
-    expect(tags.image).toContain("og-preview");
+    expect(tags.image).toContain("facebook-preview-2b-landscaping-v2");
     expect(tags.url).toBeTruthy();
     expect(tags.type).toBe("website");
   });

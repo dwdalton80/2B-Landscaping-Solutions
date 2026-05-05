@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import { notifyOwner } from "./_core/notification";
+import { sendEmail, formatContactEmailHtml } from "./_core/email";
 
 export const appRouter = router({
   // if you need to use socket.io, read and register route in server/_core/index.ts, all api should start with '/api/' so that the gateway can route correctly
@@ -46,10 +47,29 @@ Reply to: ${input.email}
         `.trim();
 
         try {
+          // Send notification to platform owner
           await notifyOwner({
             title: "New Estimate Request",
             content,
           });
+
+          // Send email directly to business email
+          const emailSent = await sendEmail({
+            to: "2b.landscaping@gmail.com",
+            subject: `New Estimate Request from ${input.name}`,
+            html: formatContactEmailHtml({
+              name: input.name,
+              email: input.email,
+              phone: input.phone,
+              service: input.service,
+              message: input.message,
+            }),
+          });
+
+          if (!emailSent) {
+            console.warn("Email notification failed, but form was submitted");
+          }
+
           return { success: true };
         } catch (error) {
           console.error("Failed to send notification:", error);
