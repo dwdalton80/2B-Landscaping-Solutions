@@ -451,9 +451,9 @@ export function ServiceDetail() {
         <div className="container max-w-4xl py-12">
           {/* Overview */}
           <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6">Overview</h2>
-          <p className="text-lg text-gray-700 leading-relaxed">{service.description}</p>
-        </section>
+            <h2 className="text-3xl font-bold mb-6">Overview</h2>
+            <p className="text-lg text-gray-700 leading-relaxed">{service.description}</p>
+          </section>
 
         {/* Benefits */}
         <section className="mb-12">

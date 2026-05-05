@@ -172,11 +172,11 @@ function ServiceCard({ service, index, onServiceClick }: { service: typeof servi
         </div>
       )}
 
-      <div className="p-5 cursor-pointer" onClick={() => onServiceClick(service.id)}>
-        <h3 className="font-display text-lg font-semibold text-[oklch(0.22_0.04_55)] mb-2 group-hover:text-[oklch(0.28_0.08_145)] transition-colors">
+      <div className="p-4 sm:p-5 cursor-pointer" onClick={() => onServiceClick(service.id)}>
+        <h3 className="font-display text-base sm:text-lg font-semibold text-[oklch(0.22_0.04_55)] mb-2 group-hover:text-[oklch(0.28_0.08_145)] transition-colors">
           {service.title}
         </h3>
-        <p className="font-body text-sm text-[oklch(0.45_0.04_55)] leading-relaxed">
+        <p className="font-body text-xs sm:text-sm text-[oklch(0.45_0.04_55)] leading-relaxed">
           {service.description}
         </p>
       </div>
@@ -216,10 +216,10 @@ export default function ServicesSection() {
           <span className="font-body text-sm font-semibold tracking-widest text-[oklch(0.72_0.12_75)] uppercase mb-3 block">
             What We Do
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[oklch(0.22_0.04_55)] mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[oklch(0.22_0.04_55)] mb-4">
             Our Services
           </h2>
-          <p className="font-body text-lg text-[oklch(0.45_0.04_55)] max-w-2xl mx-auto">
+          <p className="font-body text-base sm:text-lg text-[oklch(0.45_0.04_55)] max-w-2xl mx-auto">
             From routine lawn maintenance to complete landscape transformations, we bring
             craftsmanship and care to every job — no project too small.
           </p>
@@ -227,7 +227,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} onServiceClick={handleServiceClick} />
           ))}

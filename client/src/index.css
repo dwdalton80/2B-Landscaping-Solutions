@@ -108,6 +108,21 @@
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
   }
+  
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 1.875rem;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.15;
+    }
+    h3 {
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+  }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -157,10 +172,26 @@
     margin-bottom: -4%;
   }
 
+  @media (max-width: 768px) {
+    .section-diagonal-bottom {
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+      padding-bottom: 5%;
+      margin-bottom: -2%;
+    }
+  }
+
   .section-diagonal-top {
     clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
     padding-top: 8%;
     margin-top: -4%;
+  }
+
+  @media (max-width: 768px) {
+    .section-diagonal-top {
+      clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+      padding-top: 5%;
+      margin-top: -2%;
+    }
   }
 
   /* Font utilities */

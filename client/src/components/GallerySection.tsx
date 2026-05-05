@@ -72,10 +72,10 @@ export default function GallerySection() {
           <span className="font-body text-sm font-semibold tracking-widest text-[oklch(0.72_0.12_75)] uppercase mb-3 block">
             Our Work
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-[oklch(0.22_0.04_55)] mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[oklch(0.22_0.04_55)] mb-4">
             Project Gallery
           </h2>
-          <p className="font-body text-lg text-[oklch(0.45_0.04_55)] max-w-2xl mx-auto">
+          <p className="font-body text-base sm:text-lg text-[oklch(0.45_0.04_55)] max-w-2xl mx-auto">
             Browse a selection of our recent landscaping projects across Durant
             and the surrounding communities of Bryan County. Click any image to view full-size.
           </p>
@@ -83,7 +83,7 @@ export default function GallerySection() {
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3 auto-rows-[150px] sm:auto-rows-[200px]">
           {galleryItems.map((item, index) => (
             <div
               key={index}

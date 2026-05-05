@@ -41,7 +41,7 @@ export default function HeroSection() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
             Crafting Beautiful{" "}
             <span className="text-[oklch(0.85_0.10_75)] italic">Outdoor</span>
             <br />
@@ -49,24 +49,24 @@ export default function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p className="font-body text-lg md:text-xl text-white/85 mb-8 max-w-xl leading-relaxed">
+          <p className="font-body text-base sm:text-lg md:text-xl text-white/85 mb-8 max-w-xl leading-relaxed">
             From lush lawns to stunning hardscapes — 2B Landscaping brings
             expert craftsmanship and local know-how to every project in
             Bryan County and beyond.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="tel:5809162686"
-              className="flex items-center gap-2 bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.80_0.12_75)] text-[oklch(0.18_0.05_55)] font-body font-bold px-6 py-3.5 rounded transition-all duration-200 shadow-lg hover:shadow-xl text-base"
+              className="flex items-center justify-center sm:justify-start gap-2 bg-[oklch(0.72_0.12_75)] hover:bg-[oklch(0.80_0.12_75)] text-[oklch(0.18_0.05_55)] font-body font-bold px-6 py-3 sm:py-3.5 rounded transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
             >
               <Phone className="w-5 h-5" />
               Call for a Free Quote
             </a>
             <button
               onClick={scrollToServices}
-              className="flex items-center gap-2 border-2 border-white/60 hover:border-white text-white font-body font-semibold px-6 py-3.5 rounded transition-all duration-200 hover:bg-white/10 text-base backdrop-blur-sm"
+              className="flex items-center justify-center gap-2 border-2 border-white/60 hover:border-white text-white font-body font-semibold px-6 py-3 sm:py-3.5 rounded transition-all duration-200 hover:bg-white/10 text-sm sm:text-base backdrop-blur-sm"
             >
               View Our Services
             </button>
