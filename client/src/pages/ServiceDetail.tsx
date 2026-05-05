@@ -405,6 +405,18 @@ export function ServiceDetail() {
   const serviceId = location.split("/services/")[1];
   const service = servicePages[serviceId];
 
+  const handleRequestQuote = () => {
+    // Navigate to home page first, then scroll to contact
+    navigate("/");
+    // Use setTimeout to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const contactSection = document.querySelector("#contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
   if (!service) {
     return (
       <div className="min-h-screen bg-background text-foreground py-12">
@@ -481,13 +493,12 @@ export function ServiceDetail() {
           <p className="text-gray-700 mb-6">
             Contact 2B Landscaping today for a free consultation and quote.
           </p>
-          <a href="/#contact" className="inline-block">
-            <Button 
-              className="bg-[#d4a574] hover:bg-[#c49560] text-white px-8 py-3 text-lg"
-            >
-              Request a Quote
-            </Button>
-          </a>
+          <Button 
+            onClick={handleRequestQuote}
+            className="bg-[#d4a574] hover:bg-[#c49560] text-white px-8 py-3 text-lg"
+          >
+            Request a Quote
+          </Button>
         </section>
 
         {/* Related Services */}
