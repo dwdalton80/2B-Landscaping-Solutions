@@ -1,0 +1,14 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Specifically allow Facebook's crawler
+User-agent: facebookexternalhit
+Allow: /
+
+# Specifically allow Facebook's URL scraper
+User-agent: Facebot
+Allow: /
+
+# Sitemap location
+Sitemap: https://2blandscapingsolutions.com/sitemap.xml
