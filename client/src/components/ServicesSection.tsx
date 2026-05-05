@@ -3,6 +3,7 @@
    Staggered card grid with hover photo reveals
    ============================================================ */
 import { useEffect, useRef } from "react";
+import { useLocation } from "wouter";
 import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench, Lightbulb, Waves, Fish, Grid3x3 } from "lucide-react";
 
 const LAWN_CARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_lawn_care-LtBfYjKFirKQnydPLnTRnc.webp";
@@ -12,6 +13,7 @@ const SPRINKLER_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/
 
 const services = [
   {
+    id: "lawn-care",
     icon: Sprout,
     title: "Lawn Care & Maintenance",
     description:
@@ -20,6 +22,7 @@ const services = [
     featured: false,
   },
   {
+    id: "landscape-design",
     icon: TreePine,
     title: "Landscape Design",
     description:
@@ -28,6 +31,7 @@ const services = [
     featured: false,
   },
   {
+    id: "retaining-walls",
     icon: Hammer,
     title: "Retaining Walls",
     description:
@@ -36,6 +40,7 @@ const services = [
     featured: false,
   },
   {
+    id: "irrigation-installation",
     icon: Droplets,
     title: "Sprinkler Installation",
     description:
@@ -44,6 +49,7 @@ const services = [
     featured: false,
   },
   {
+    id: "patios-hardscapes",
     icon: Layers,
     title: "Patios & Hardscapes",
     description:
@@ -52,6 +58,7 @@ const services = [
     featured: false,
   },
   {
+    id: "walkways-paths",
     icon: Footprints,
     title: "Walkways & Paths",
     description:
@@ -60,6 +67,7 @@ const services = [
     featured: false,
   },
   {
+    id: "sod-installation",
     icon: Shovel,
     title: "Sod Installation",
     description:
@@ -68,6 +76,7 @@ const services = [
     featured: false,
   },
   {
+    id: "masonry",
     icon: Wrench,
     title: "Masonry",
     description:
@@ -76,6 +85,7 @@ const services = [
     featured: false,
   },
   {
+    id: "christmas-lights",
     icon: Lightbulb,
     title: "Christmas Light Installation",
     description:
@@ -84,6 +94,7 @@ const services = [
     featured: false,
   },
   {
+    id: "fountain-installation",
     icon: Waves,
     title: "Fountain Installation",
     description:
@@ -92,6 +103,7 @@ const services = [
     featured: false,
   },
   {
+    id: "pond-scrapes",
     icon: Fish,
     title: "Pond Scrapes",
     description:
@@ -100,6 +112,7 @@ const services = [
     featured: false,
   },
   {
+    id: "artificial-turf",
     icon: Grid3x3,
     title: "Artificial Turf Installation",
     description:
@@ -109,7 +122,7 @@ const services = [
   },
 ];
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+function ServiceCard({ service, index, onServiceClick }: { service: typeof services[0]; index: number; onServiceClick: (id: string) => void }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -159,7 +172,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         </div>
       )}
 
-      <div className="p-5">
+      <div className="p-5 cursor-pointer" onClick={() => onServiceClick(service.id)}>
         <h3 className="font-display text-lg font-semibold text-[oklch(0.22_0.04_55)] mb-2 group-hover:text-[oklch(0.28_0.08_145)] transition-colors">
           {service.title}
         </h3>
@@ -175,7 +188,12 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 }
 
 export default function ServicesSection() {
+  const [, navigate] = useLocation();
   const titleRef = useRef<HTMLDivElement>(null);
+
+  const handleServiceClick = (serviceId: string) => {
+    navigate(`/services/${serviceId}`);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -211,7 +229,7 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
+            <ServiceCard key={service.title} service={service} index={index} onServiceClick={handleServiceClick} />
           ))}
         </div>
 
