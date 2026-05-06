@@ -53,6 +53,15 @@ async function startServer() {
     res.json(ogData);
   });
   
+  // Middleware to bypass Cloudflare for social media scrapers
+  app.use((req, res, next) => {
+    const userAgent = req.get('user-agent') || '';
+    if (userAgent.includes('facebookexternalhit') || userAgent.includes('Facebot') || userAgent.includes('twitterbot')) {
+      res.set('Cache-Control', 'public, max-age=3600');
+    }
+    next();
+  });
+  
   // Direct image endpoint for social media scrapers - serves custom og image inline
   app.get('/og-image.png', async (req, res) => {
     try {
