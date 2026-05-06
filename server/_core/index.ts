@@ -42,7 +42,7 @@ async function startServer() {
     const ogData = {
       title: '2B Landscaping | Professional Lawn Care & Landscape Design in Durant, OK',
       description: 'Transform your outdoor space with expert landscaping services in Durant, Oklahoma. 15+ years of professional lawn care, hardscapes, landscape design, and more. Free estimates!',
-      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/facebook-preview-2b-landscaping-custom_2307e47d.png',
+      image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/facebook-preview-2b-landscaping-final_e4995d00.png',
       url: 'https://2blandscapingsolutions.com/',
       type: 'website',
       siteName: '2B Landscaping'
