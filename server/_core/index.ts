@@ -39,6 +39,9 @@ async function startServer() {
   
   // Public OG metadata endpoint for social media scrapers (Facebook, Twitter, etc.)
   app.get('/api/og-metadata', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=86400');
+    res.set('Content-Type', 'application/json');
+    
     const ogData = {
       title: '2B Landscaping | Professional Lawn Care & Landscape Design in Durant, OK',
       description: 'Transform your outdoor space with expert landscaping services in Durant, Oklahoma. 15+ years of professional lawn care, hardscapes, landscape design, and more. Free estimates!',
@@ -48,6 +51,12 @@ async function startServer() {
       siteName: '2B Landscaping'
     };
     res.json(ogData);
+  });
+  
+  // Direct image endpoint for social media scrapers with proper caching
+  app.get('/og-image.webp', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=604800');
+    res.redirect('https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/facebook-preview-2b-landscaping-v2-mgyY2gJDeiMF3j4UiPSYku.webp');
   });
   
   // tRPC API
