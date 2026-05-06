@@ -3,19 +3,21 @@
    Sticky top nav, forest green background on scroll
    ============================================================ */
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Menu, X, Phone } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/", anchor: "home" },
+  { label: "Services", href: "/", anchor: "services" },
+  { label: "About", href: "/", anchor: "about" },
+  { label: "Gallery", href: "/", anchor: "gallery" },
+  { label: "Contact", href: "/", anchor: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [location, navigate] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -23,10 +25,21 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, anchor: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    // If we're not on the home page, navigate to home first
+    if (location !== "/") {
+      navigate("/");
+      // Wait for navigation to complete, then scroll to anchor
+      setTimeout(() => {
+        const el = document.querySelector(`#${anchor}`);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      // We're already on home page, just scroll to anchor
+      const el = document.querySelector(`#${anchor}`);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -40,8 +53,8 @@ export default function Navbar() {
       <div className="container mx-auto flex items-center justify-between py-4">
         {/* Logo */}
         <a
-          href="#home"
-          onClick={(e) => { e.preventDefault(); handleNavClick("#home"); }}
+          href="/"
+          onClick={(e) => { e.preventDefault(); navigate("/"); }}
           className="flex items-center gap-2 sm:gap-3 group flex-shrink-0"
         >
           <picture>
@@ -63,9 +76,9 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+              key={link.anchor}
+              href="/"
+              onClick={(e) => { e.preventDefault(); handleNavClick(link.href, link.anchor); }}
               className="font-body font-500 text-white/90 hover:text-[oklch(0.85_0.10_75)] transition-colors duration-200 text-sm tracking-wide relative group"
             >
               {link.label}
@@ -98,9 +111,9 @@ export default function Navbar() {
         <div className="md:hidden bg-[oklch(0.22_0.07_145)] border-t border-white/10 px-4 pb-4">
           {navLinks.map((link) => (
             <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+              key={link.anchor}
+              href="/"
+              onClick={(e) => { e.preventDefault(); handleNavClick(link.href, link.anchor); }}
               className="block py-3 text-white/90 hover:text-[oklch(0.85_0.10_75)] font-body text-base border-b border-white/10 last:border-0 transition-colors"
             >
               {link.label}
