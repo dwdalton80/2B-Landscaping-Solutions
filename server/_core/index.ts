@@ -53,10 +53,19 @@ async function startServer() {
     res.json(ogData);
   });
   
-  // Direct image endpoint for social media scrapers with proper caching
-  app.get('/og-image.webp', (req, res) => {
-    res.set('Cache-Control', 'public, max-age=604800');
-    res.redirect('https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/facebook-preview-2b-landscaping-v2-mgyY2gJDeiMF3j4UiPSYku.webp');
+  // Direct image endpoint for social media scrapers - serves custom og image inline
+  app.get('/og-image.png', async (req, res) => {
+    try {
+      const imageUrl = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/facebook-preview-2b-landscaping-v2-mgyY2gJDeiMF3j4UiPSYku.webp';
+      const response = await fetch(imageUrl);
+      if (!response.ok) throw new Error('Failed to fetch image');
+      const buffer = await response.arrayBuffer();
+      res.set('Content-Type', 'image/png');
+      res.set('Cache-Control', 'public, max-age=604800');
+      res.send(Buffer.from(buffer));
+    } catch (e) {
+      res.status(500).send('Image unavailable');
+    }
   });
   
   // tRPC API
