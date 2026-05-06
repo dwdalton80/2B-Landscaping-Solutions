@@ -439,7 +439,7 @@ export function ServiceDetail() {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navbar />
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#2d5f4f] to-[#1a3a2e] text-white py-12">
+      <div className="bg-gradient-to-r from-[#2d5f4f] to-[#1a3a2e] text-white py-12 pt-20">
         <div className="container max-w-4xl">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
           <p className="text-xl text-gray-100">{service.subtitle}</p>
