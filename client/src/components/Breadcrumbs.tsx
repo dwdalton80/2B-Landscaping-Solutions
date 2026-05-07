@@ -60,20 +60,20 @@ export function Breadcrumbs() {
   }
 
   return (
-    <nav className="bg-gray-50 border-b border-gray-200 py-3" aria-label="Breadcrumb">
+    <nav className="bg-white border-b border-gray-200 py-2" aria-label="Breadcrumb">
       <div className="container max-w-4xl px-4">
-        <ol className="flex items-center gap-2 text-sm">
+        <ol className="flex items-center gap-1.5 text-xs sm:text-sm overflow-x-auto">
           {breadcrumbs.map((crumb, index) => (
             <li key={crumb.path} className="flex items-center gap-2">
               {index > 0 && (
-                <ChevronRight className="w-4 h-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
+                <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
               )}
               {index === breadcrumbs.length - 1 ? (
-                <span className="text-gray-700 font-medium" aria-current="page">{crumb.label}</span>
+                <span className="text-gray-700 font-medium whitespace-nowrap" aria-current="page">{crumb.label}</span>
               ) : (
                 <a
                   href={crumb.path}
-                  className="text-amber-600 hover:text-amber-700 transition-colors"
+                  className="text-amber-600 hover:text-amber-700 transition-colors whitespace-nowrap"
                 >
                   {crumb.label}
                 </a>
