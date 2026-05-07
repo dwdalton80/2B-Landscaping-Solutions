@@ -1,5 +1,8 @@
 import { useLocation } from "wouter";
 import { ChevronRight } from "lucide-react";
+import { useEffect } from "react";
+import { addSchemaMarkup } from "@/lib/schema";
+import { getBreadcrumbSchema } from "@/lib/breadcrumb-schema";
 
 interface BreadcrumbItem {
   label: string;
@@ -9,7 +12,13 @@ interface BreadcrumbItem {
 export function Breadcrumbs() {
   const [location] = useLocation();
 
-  // Generate breadcrumbs based on current location
+  useEffect(() => {
+    const breadcrumbs = getBreadcrumbs();
+    if (breadcrumbs.length > 0) {
+      addSchemaMarkup(getBreadcrumbSchema(breadcrumbs));
+    }
+  }, [location]);
+
   const getBreadcrumbs = (): BreadcrumbItem[] => {
     const breadcrumbs: BreadcrumbItem[] = [
       { label: "Home", path: "/" },

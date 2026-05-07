@@ -16,4 +16,4 @@
 - [x] Create Breadcrumbs component
 - [x] Add breadcrumbs to service detail pages
 - [x] Add breadcrumbs to other pages as needed
-- [ ] Add breadcrumb schema markup for SEO
+- [x] Add breadcrumb schema markup for SEO
