@@ -11,3 +11,9 @@
 - [x] Improve mobile font sizing and readability
 - [x] Optimize spacing and padding for mobile
 - [x] Test mobile performance and loading times
+
+## Breadcrumbs Navigation
+- [x] Create Breadcrumbs component
+- [x] Add breadcrumbs to service detail pages
+- [x] Add breadcrumbs to other pages as needed
+- [ ] Add breadcrumb schema markup for SEO

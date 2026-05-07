@@ -8,6 +8,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { setOGTags } from "@/lib/og-tags";
 import { addSchemaMarkup, getLocalBusinessSchema, getOrganizationSchema } from "@/lib/schema";
 import Navbar from "@/components/Navbar";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
@@ -39,6 +40,7 @@ export default function Home() {
     <>
       <div className="min-h-screen bg-[oklch(0.97_0.015_80)] overflow-x-hidden">
       <Navbar />
+      <Breadcrumbs />
       <HeroSection />
       <ServicesSection />
       <AboutSection />

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 interface ServicePageConfig {
   id: string;
@@ -438,6 +439,7 @@ export function ServiceDetail() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navbar />
+      <Breadcrumbs />
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#2d5f4f] to-[#1a3a2e] text-white py-12 pt-20">
         <div className="container max-w-4xl">
