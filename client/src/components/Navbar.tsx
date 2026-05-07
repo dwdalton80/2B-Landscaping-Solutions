@@ -50,7 +50,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-4">
+      <div className="container mx-auto flex items-center justify-between py-4 pt-12 sm:pt-4">
         {/* Logo */}
         <a
           href="/"
