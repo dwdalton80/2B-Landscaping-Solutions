@@ -210,6 +210,10 @@ export default function ServicesSection() {
 
   const handleServiceClick = (serviceId: string) => {
     navigate(`/services/${serviceId}`);
+    // Scroll to top of page
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 0);
   };
 
   useEffect(() => {
