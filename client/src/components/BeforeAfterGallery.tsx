@@ -44,8 +44,8 @@ const galleryData: ServiceCategory[] = [
     name: "Retaining Walls",
     projects: [
       {
-        before: "/manus-storage/W9aCkbZi8EwJ_31a34803.jpg",
-        after: "/manus-storage/5IoRNoI2A7CU_1df5c720.jpg",
+        before: "/manus-storage/retainingwallbefore_3b2f43ad.jpg",
+        after: "/manus-storage/retainingwallafter_b55109f4.jpg",
         title: "Stone Retaining Wall",
         description: "Professional stone wall installation",
       },
