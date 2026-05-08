@@ -1,13 +1,14 @@
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
 
 /**
- * Testimonials Section
+ * Testimonials Carousel Section
  * Design: Oklahoma Craftsman
  * - Warm amber accent color for star ratings
  * - Deep forest green backgrounds for testimonial cards
  * - Playfair Display headings with serif elegance
  * - Source Sans 3 body text for readability
- * - Masonry-inspired card layout with varied heights
+ * - Interactive carousel with navigation and autoplay
  */
 
 const testimonials = [
@@ -38,6 +39,39 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoplay, setIsAutoplay] = useState(true);
+
+  // Autoplay carousel every 5 seconds
+  useEffect(() => {
+    if (!isAutoplay) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoplay]);
+
+  const handlePrev = () => {
+    setIsAutoplay(false);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const handleNext = () => {
+    setIsAutoplay(false);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handleDotClick = (index: number) => {
+    setIsAutoplay(false);
+    setCurrentIndex(index);
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
+
   return (
     <section className="py-20 bg-gradient-to-b from-amber-50 to-white">
       <div className="container">
@@ -50,44 +84,84 @@ export default function TestimonialsSection() {
             Trusted by Durant Homeowners
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            See why families and businesses across Bryan County choose 2B Landscaping for their outdoor projects.
+            See why families and businesses across Bryan County choose 2B
+            Landscaping for their outdoor projects.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border-l-4 border-amber-600 ${
-                index === 0 ? "md:col-span-1" : ""
-              }`}
-            >
-              {/* Star Rating */}
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={18}
-                    className="fill-amber-500 text-amber-500"
-                  />
-                ))}
-              </div>
-
-              {/* Testimonial Text */}
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.text}"
-              </p>
-
-              {/* Client Info */}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                <p className="text-sm text-amber-700 font-medium">
-                  {testimonial.project}
-                </p>
-              </div>
+        {/* Carousel Container */}
+        <div className="max-w-3xl mx-auto">
+          {/* Testimonial Card */}
+          <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border-l-4 border-amber-600 min-h-[320px] flex flex-col justify-between">
+            {/* Star Rating */}
+            <div className="flex gap-1 mb-4">
+              {Array.from({ length: currentTestimonial.rating }).map((_, i) => (
+                <Star
+                  key={i}
+                  size={18}
+                  className="fill-amber-500 text-amber-500"
+                />
+              ))}
             </div>
-          ))}
+
+            {/* Testimonial Text */}
+            <p className="text-gray-700 mb-6 leading-relaxed italic text-lg">
+              "{currentTestimonial.text}"
+            </p>
+
+            {/* Client Info */}
+            <div className="border-t border-gray-200 pt-4">
+              <p className="font-semibold text-gray-900">
+                {currentTestimonial.name}
+              </p>
+              <p className="text-sm text-amber-700 font-medium">
+                {currentTestimonial.project}
+              </p>
+            </div>
+          </div>
+
+          {/* Navigation Controls */}
+          <div className="flex items-center justify-between mt-8">
+            {/* Previous Button */}
+            <button
+              onClick={handlePrev}
+              className="p-2 rounded-full bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="flex gap-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "bg-amber-600 w-8"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-current={index === currentIndex}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={handleNext}
+              className="p-2 rounded-full bg-amber-100 text-amber-700 hover:bg-amber-200 transition-colors"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Counter */}
+          <div className="text-center mt-6 text-sm text-gray-600">
+            {currentIndex + 1} / {testimonials.length}
+          </div>
         </div>
 
         {/* CTA */}

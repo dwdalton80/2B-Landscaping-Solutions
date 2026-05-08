@@ -33,7 +33,7 @@
 - [ ] Update 'Lawn Care' section with custom user photos (pending user images)
 
 ## Future Enhancements
-- [ ] Implement Customer Testimonials carousel
-- [ ] Build Service Request Modal for lead capture
-- [ ] Add FAQ section with schema markup
+- [x] Implement Customer Testimonials carousel with autoplay and navigation
+- [x] Build Service Request Modal for lead capture with tRPC integration
+- [x] Add FAQ section with schema markup for SEO
 - [ ] Publish latest changes to production

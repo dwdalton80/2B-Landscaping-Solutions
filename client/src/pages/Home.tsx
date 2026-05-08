@@ -16,6 +16,8 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import GallerySection from "@/components/GallerySection";
 import BeforeAfterGallery from "@/components/BeforeAfterGallery";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ServiceRequestModal from "@/components/ServiceRequestModal";
+import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -24,6 +26,7 @@ export default function Home() {
   // The userAuth hooks provides authentication state
   // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
   let { user, loading, error, isAuthenticated, logout } = useAuth();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   // Set SEO title, Open Graph tags, and schema markup
   React.useEffect(() => {
@@ -43,13 +46,15 @@ export default function Home() {
       <Navbar />
       <Breadcrumbs />
       <HeroSection />
-      <ServicesSection />
+      <ServicesSection onServiceClick={() => setIsModalOpen(true)} />
       <AboutSection />
       <WhyChooseUs />
       <GallerySection />
       <BeforeAfterGallery />
       <TestimonialsSection />
+      <FAQSection />
       <ContactSection />
+      <ServiceRequestModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Footer />
       </div>
     </>
