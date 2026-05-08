@@ -25,12 +25,6 @@ const galleryData: ServiceCategory[] = [
         title: "Overgrown Lawn Transformation",
         description: "Complete lawn restoration with regular maintenance",
       },
-      {
-        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
-        after: "/manus-storage/dEM0OLOr4F25_9793536f.png",
-        title: "Weed Control & Edging",
-        description: "Professional weed removal and lawn edging",
-      },
     ],
   },
   {
@@ -43,12 +37,6 @@ const galleryData: ServiceCategory[] = [
         title: "Complete Landscape Redesign",
         description: "From bare yard to stunning landscape",
       },
-      {
-        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
-        after: "/manus-storage/dEM0OLOr4F25_9793536f.png",
-        title: "Garden Bed Installation",
-        description: "Beautiful flower beds with seasonal plantings",
-      },
     ],
   },
   {
@@ -60,24 +48,6 @@ const galleryData: ServiceCategory[] = [
         after: "/manus-storage/5IoRNoI2A7CU_1df5c720.jpg",
         title: "Stone Retaining Wall",
         description: "Professional stone wall installation",
-      },
-      {
-        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
-        after: "/manus-storage/5IoRNoI2A7CU_1df5c720.jpg",
-        title: "Terraced Hillside Wall",
-        description: "Multi-level retaining wall for slope stabilization",
-      },
-    ],
-  },
-  {
-    id: "outdoor-lighting",
-    name: "Outdoor Lighting",
-    projects: [
-      {
-        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
-        after: "/manus-storage/dEM0OLOr4F25_9793536f.png",
-        title: "Landscape Lighting Installation",
-        description: "Professional outdoor lighting design",
       },
     ],
   },
