@@ -204,20 +204,16 @@ function ServiceCard({ service, index, onServiceClick }: { service: typeof servi
   );
 }
 
-export default function ServicesSection({ onServiceClick }: { onServiceClick?: () => void } = {}) {
+export default function ServicesSection() {
   const [, navigate] = useLocation();
   const titleRef = useRef<HTMLDivElement>(null);
 
   const handleServiceClick = (serviceId: string) => {
-    if (onServiceClick) {
-      onServiceClick();
-    } else {
-      navigate(`/services/${serviceId}`);
-      // Scroll to top of page
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 0);
-    }
+    navigate(`/services/${serviceId}`);
+    // Scroll to top of page
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 0);
   };
 
   useEffect(() => {

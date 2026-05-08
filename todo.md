@@ -38,4 +38,8 @@
 - [x] Add FAQ section with schema markup for SEO
 
 ## Deployment
-- [ ] Publish latest changes to production
+- [x] Publish latest changes to production
+
+## Bug Fixes
+- [x] Fix services section - service cards should navigate to service detail pages, not open modal
+- [x] Add "Contact Us" button to service detail pages that opens the quick service request modal

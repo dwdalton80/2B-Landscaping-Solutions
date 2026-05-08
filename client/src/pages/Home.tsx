@@ -46,7 +46,7 @@ export default function Home() {
       <Navbar />
       <Breadcrumbs />
       <HeroSection />
-      <ServicesSection onServiceClick={() => setIsModalOpen(true)} />
+      <ServicesSection />
       <AboutSection />
       <WhyChooseUs />
       <GallerySection />

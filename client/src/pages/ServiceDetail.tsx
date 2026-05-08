@@ -1,9 +1,11 @@
 import { useLocation } from "wouter";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import ServiceRequestModal from "@/components/ServiceRequestModal";
 
 interface ServicePageConfig {
   id: string;
@@ -405,6 +407,7 @@ const servicePages: Record<string, ServicePageConfig> = {
 
 export function ServiceDetail() {
   const [location, navigate] = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const serviceId = location.split("/services/")[1];
   const service = servicePages[serviceId];
 
@@ -504,10 +507,10 @@ export function ServiceDetail() {
             Contact 2B Landscaping today for a free consultation and quote.
           </p>
           <Button 
-            onClick={handleRequestQuote}
+            onClick={() => setIsModalOpen(true)}
             className="bg-[#d4a574] hover:bg-[#c49560] text-white px-8 py-3 text-lg"
           >
-            Request a Quote
+            Contact Us
           </Button>
         </section>
 
@@ -537,6 +540,11 @@ export function ServiceDetail() {
         )}
         </div>
       </div>
+      <ServiceRequestModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        selectedService={service?.title}
+      />
       <Footer />
     </div>
   );
