@@ -20,10 +20,10 @@ const galleryData: ServiceCategory[] = [
     name: "Lawn Care & Maintenance",
     projects: [
       {
-        before: "/manus-storage/aE2OceVKvQGz_c96ef2c5.jpeg",
-        after: "/manus-storage/1kdy7miQeS0K_7abef5c7.jpg",
-        title: "Overgrown Lawn Transformation",
-        description: "Complete lawn restoration with regular maintenance",
+        before: "/manus-storage/lawncarebefore_8d33d706.jpg",
+        after: "/manus-storage/lawncareafter_5fd54c09.jpg",
+        title: "Complete Lawn Restoration",
+        description: "Bare ground transformed into lush, healthy lawn with professional landscaping",
       },
     ],
   },

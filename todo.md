@@ -30,10 +30,12 @@
 ## Gallery Image Updates
 - [x] Update 'Retaining Walls' section with custom user photos
 - [x] Update 'Landscape Design' section with custom user photos
-- [ ] Update 'Lawn Care' section with custom user photos (pending user images)
+- [x] Update 'Lawn Care' section with custom user photos
 
-## Future Enhancements
+## Enhanced User Engagement
 - [x] Implement Customer Testimonials carousel with autoplay and navigation
 - [x] Build Service Request Modal for lead capture with tRPC integration
 - [x] Add FAQ section with schema markup for SEO
+
+## Deployment
 - [ ] Publish latest changes to production
