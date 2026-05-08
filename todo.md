@@ -26,3 +26,14 @@
 - [x] Integrate gallery section into Home page
 - [x] Add animations and transitions
 - [x] Test gallery responsiveness on mobile
+
+## Gallery Image Updates
+- [x] Update 'Retaining Walls' section with custom user photos
+- [x] Update 'Landscape Design' section with custom user photos
+- [ ] Update 'Lawn Care' section with custom user photos (pending user images)
+
+## Future Enhancements
+- [ ] Implement Customer Testimonials carousel
+- [ ] Build Service Request Modal for lead capture
+- [ ] Add FAQ section with schema markup
+- [ ] Publish latest changes to production

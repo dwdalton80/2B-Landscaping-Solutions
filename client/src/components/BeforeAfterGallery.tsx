@@ -32,10 +32,10 @@ const galleryData: ServiceCategory[] = [
     name: "Landscape Design",
     projects: [
       {
-        before: "/manus-storage/zv8LwjirEjSO_93e66730.jpg",
-        after: "/manus-storage/1kdy7miQeS0K_7abef5c7.jpg",
-        title: "Complete Landscape Redesign",
-        description: "From bare yard to stunning landscape",
+        before: "/manus-storage/Landscapebefore_5d266747.jpg",
+        after: "/manus-storage/LandscapeAfter_801cb607.jpg",
+        title: "Modern Landscape Design",
+        description: "Contemporary landscape with hardscape features",
       },
     ],
   },
