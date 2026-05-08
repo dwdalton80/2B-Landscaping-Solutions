@@ -20,14 +20,14 @@ const galleryData: ServiceCategory[] = [
     name: "Lawn Care & Maintenance",
     projects: [
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/aE2OceVKvQGz_71cf51ee.jpeg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/1kdy7miQeS0K_2550daa8.jpg",
+        before: "/manus-storage/aE2OceVKvQGz_c96ef2c5.jpeg",
+        after: "/manus-storage/1kdy7miQeS0K_7abef5c7.jpg",
         title: "Overgrown Lawn Transformation",
         description: "Complete lawn restoration with regular maintenance",
       },
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/RzprR9O8U7ZH_ccc69e18.jpg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/dEM0OLOr4F25_b1e17e99.png",
+        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
+        after: "/manus-storage/dEM0OLOr4F25_9793536f.png",
         title: "Weed Control & Edging",
         description: "Professional weed removal and lawn edging",
       },
@@ -38,14 +38,14 @@ const galleryData: ServiceCategory[] = [
     name: "Landscape Design",
     projects: [
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/zv8LwjirEjSO_015174f6.jpg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/1kdy7miQeS0K_2550daa8.jpg",
+        before: "/manus-storage/zv8LwjirEjSO_93e66730.jpg",
+        after: "/manus-storage/1kdy7miQeS0K_7abef5c7.jpg",
         title: "Complete Landscape Redesign",
         description: "From bare yard to stunning landscape",
       },
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/RzprR9O8U7ZH_ccc69e18.jpg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/dEM0OLOr4F25_b1e17e99.png",
+        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
+        after: "/manus-storage/dEM0OLOr4F25_9793536f.png",
         title: "Garden Bed Installation",
         description: "Beautiful flower beds with seasonal plantings",
       },
@@ -56,14 +56,14 @@ const galleryData: ServiceCategory[] = [
     name: "Retaining Walls",
     projects: [
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/W9aCkbZi8EwJ_535a937f.jpg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/5IoRNoI2A7CU_8956840e.jpg",
+        before: "/manus-storage/W9aCkbZi8EwJ_31a34803.jpg",
+        after: "/manus-storage/5IoRNoI2A7CU_1df5c720.jpg",
         title: "Stone Retaining Wall",
         description: "Professional stone wall installation",
       },
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/RzprR9O8U7ZH_ccc69e18.jpg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/5IoRNoI2A7CU_8956840e.jpg",
+        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
+        after: "/manus-storage/5IoRNoI2A7CU_1df5c720.jpg",
         title: "Terraced Hillside Wall",
         description: "Multi-level retaining wall for slope stabilization",
       },
@@ -74,8 +74,8 @@ const galleryData: ServiceCategory[] = [
     name: "Outdoor Lighting",
     projects: [
       {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/RzprR9O8U7ZH_ccc69e18.jpg",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/dEM0OLOr4F25_b1e17e99.png",
+        before: "/manus-storage/RzprR9O8U7ZH_e155d58f.jpg",
+        after: "/manus-storage/dEM0OLOr4F25_9793536f.png",
         title: "Landscape Lighting Installation",
         description: "Professional outdoor lighting design",
       },
