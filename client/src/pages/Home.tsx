@@ -14,6 +14,7 @@ import ServicesSection from "@/components/ServicesSection";
 import AboutSection from "@/components/AboutSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GallerySection from "@/components/GallerySection";
+import BeforeAfterGallery from "@/components/BeforeAfterGallery";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -46,6 +47,7 @@ export default function Home() {
       <AboutSection />
       <WhyChooseUs />
       <GallerySection />
+      <BeforeAfterGallery />
       <TestimonialsSection />
       <ContactSection />
       <Footer />

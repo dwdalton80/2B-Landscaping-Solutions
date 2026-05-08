@@ -17,3 +17,12 @@
 - [x] Add breadcrumbs to service detail pages
 - [x] Add breadcrumbs to other pages as needed
 - [x] Add breadcrumb schema markup for SEO
+
+## Before & After Gallery
+- [x] Create BeforeAfterGallery component
+- [x] Add service category filter tabs
+- [x] Create interactive image slider for before/after comparison
+- [x] Add image data for each service category
+- [x] Integrate gallery section into Home page
+- [x] Add animations and transitions
+- [x] Test gallery responsiveness on mobile
