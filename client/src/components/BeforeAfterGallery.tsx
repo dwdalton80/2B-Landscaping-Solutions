@@ -70,18 +70,6 @@ const galleryData: ServiceCategory[] = [
     ],
   },
   {
-    id: "irrigation-installation",
-    name: "Sprinkler Installation",
-    projects: [
-      {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/before_sprinkler_1-LtBfYjKFirKQnydPLnTRnc.webp",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/after_sprinkler_1-WjNbJhkGrifXBVVZ3zmuAG.webp",
-        title: "Full Irrigation System",
-        description: "Complete sprinkler system installation",
-      },
-    ],
-  },
-  {
     id: "outdoor-lighting",
     name: "Outdoor Lighting",
     projects: [
@@ -90,18 +78,6 @@ const galleryData: ServiceCategory[] = [
         after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/after_lighting_1-WjNbJhkGrifXBVVZ3zmuAG.webp",
         title: "Landscape Lighting Installation",
         description: "Professional outdoor lighting design",
-      },
-    ],
-  },
-  {
-    id: "water-features",
-    name: "Water Features",
-    projects: [
-      {
-        before: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/before_water_1-LtBfYjKFirKQnydPLnTRnc.webp",
-        after: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/after_water_1-WjNbJhkGrifXBVVZ3zmuAG.webp",
-        title: "Water Feature Installation",
-        description: "Beautiful fountain and water feature design",
       },
     ],
   },
