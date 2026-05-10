@@ -43,3 +43,7 @@
 ## Bug Fixes
 - [x] Fix services section - service cards should navigate to service detail pages, not open modal
 - [x] Add "Contact Us" button to service detail pages that opens the quick service request modal
+
+## Analytics & Tracking
+- [x] Set up Google Analytics (GA4) with tag ID G-RPZVE8MDJS
+- [x] Add GA4 page_view tracking for SPA route changes (client-side navigation)
