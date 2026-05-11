@@ -57,20 +57,35 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   React.useEffect(() => {
-    // Add FAQ schema markup for SEO
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-    };
-    addSchemaMarkup(faqSchema);
+    // Add FAQ schema markup for SEO - only add once to prevent duplicates
+    // Check if FAQPage schema already exists to avoid duplicates in strict mode
+    const existingScripts = Array.from(
+      document.querySelectorAll('script[type="application/ld+json"]')
+    );
+    const hasFAQSchema = existingScripts.some((script) => {
+      try {
+        const schema = JSON.parse(script.textContent || "");
+        return schema["@type"] === "FAQPage";
+      } catch {
+        return false;
+      }
+    });
+
+    if (!hasFAQSchema) {
+      const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      };
+      addSchemaMarkup(faqSchema);
+    }
   }, []);
 
   return (

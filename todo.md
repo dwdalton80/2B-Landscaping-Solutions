@@ -47,3 +47,6 @@
 ## Analytics & Tracking
 - [x] Set up Google Analytics (GA4) with tag ID G-RPZVE8MDJS
 - [x] Add GA4 page_view tracking for SPA route changes (client-side navigation)
+
+## Critical Bugs
+- [x] Fix duplicate FAQPage schema error reported by Google Search Console
