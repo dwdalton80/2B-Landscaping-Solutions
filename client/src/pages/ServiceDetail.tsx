@@ -1,11 +1,13 @@
 import { useLocation } from "wouter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import ServiceRequestModal from "@/components/ServiceRequestModal";
+import { addSchemaMarkup } from "@/lib/schema";
+import { setOGTags } from "@/lib/og-tags";
 
 interface ServicePageConfig {
   id: string;
@@ -411,6 +413,47 @@ export function ServiceDetail() {
   const serviceId = location.split("/services/")[1];
   const service = servicePages[serviceId];
 
+  // Add Service and Breadcrumb schema markup for SEO
+  useEffect(() => {
+    if (!service) return;
+
+    // Set page title and OG tags
+    document.title = service.title;
+    setOGTags(`/services/${serviceId}`);
+
+    // Service schema
+    const serviceSchema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: service.title,
+      description: service.description,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "2B Landscaping",
+        url: "https://2blandscapingsolutions.com",
+        telephone: "(580) 916-2686",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Hwy 48/78",
+          addressLocality: "Durant",
+          addressRegion: "OK",
+          postalCode: "74701",
+          addressCountry: "US",
+        },
+      },
+      areaServed: [
+        { "@type": "City", name: "Durant, OK" },
+        { "@type": "City", name: "Bryan, OK" },
+      ],
+      availableChannel: {
+        "@type": "ServiceChannel",
+        serviceUrl: `https://2blandscapingsolutions.com/services/${serviceId}`,
+      },
+    };
+    addSchemaMarkup(serviceSchema);
+    // Note: Breadcrumb schema is already added by Breadcrumbs component on route changes
+  }, [service, serviceId]);
+
   const handleRequestQuote = () => {
     // Navigate to home page first, then scroll to contact
     navigate("/");
@@ -514,23 +557,31 @@ export function ServiceDetail() {
           </Button>
         </section>
 
-        {/* Related Services */}
+        {/* Related Services - Internal Linking for SEO */}
         {service.relatedServices.length > 0 && (
-          <section>
-            <h2 className="text-3xl font-bold mb-6">Related Services</h2>
-            <div className="grid md:grid-cols-3 gap-4">
+          <section className="bg-gray-50 rounded-lg p-8 mb-12">
+            <h2 className="text-3xl font-bold mb-2">Explore Related Services</h2>
+            <p className="text-gray-600 mb-8">Enhance your project with our complementary landscaping services.</p>
+            <div className="grid md:grid-cols-3 gap-6">
               {service.relatedServices.map((relatedId) => {
                 const relatedService = servicePages[relatedId];
                 return (
                   <Card
                     key={relatedId}
-                    className="p-4 cursor-pointer hover:shadow-lg transition-shadow"
-                    onClick={() => navigate(`/services/${relatedId}`)}
+                    className="p-6 cursor-pointer hover:shadow-xl transition-all hover:border-amber-300 border-2 border-transparent"
+                    onClick={() => {
+                      navigate(`/services/${relatedId}`);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   >
-                    <h3 className="font-bold text-lg mb-2">{relatedService.subtitle}</h3>
-                    <p className="text-sm text-gray-600 mb-4">{relatedService.description.substring(0, 80)}...</p>
-                    <Button variant="outline" size="sm">
-                      Learn More
+                    <h3 className="font-bold text-lg mb-3 text-gray-900">{relatedService.subtitle}</h3>
+                    <p className="text-sm text-gray-600 mb-6 leading-relaxed">{relatedService.description.substring(0, 100)}...</p>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="w-full border-amber-600 text-amber-600 hover:bg-amber-50"
+                    >
+                      View {relatedService.subtitle}
                     </Button>
                   </Card>
                 );

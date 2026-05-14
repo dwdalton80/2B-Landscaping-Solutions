@@ -59,6 +59,71 @@ const PAGE_OG_TAGS: Record<string, Partial<OGMetaTags>> = {
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/og-preview-contact.jpg",
     type: "website",
   },
+  "/services/lawn-care": {
+    title: "Professional Lawn Care Services in Durant, OK | 2B Landscaping",
+    description: "Expert lawn care & maintenance in Durant, OK. Mowing, fertilization, weed control, aeration & more. 15+ years experience. Free estimates!",
+    type: "website",
+  },
+  "/services/landscape-design": {
+    title: "Custom Landscape Design in Durant, OK | 2B Landscaping",
+    description: "Professional landscape design services in Durant, Oklahoma. Transform your outdoor space with custom designs. Free consultation!",
+    type: "website",
+  },
+  "/services/retaining-walls": {
+    title: "Retaining Wall Installation in Durant, OK | 2B Landscaping",
+    description: "Expert retaining wall installation in Durant, OK. Stone & block walls for erosion control. Durable, beautiful construction. Free estimates!",
+    type: "website",
+  },
+  "/services/patios-hardscapes": {
+    title: "Patio & Hardscape Installation in Durant, OK | 2B Landscaping",
+    description: "Beautiful stone patios & hardscapes in Durant, Oklahoma. Expert outdoor living spaces. Increase property value. Free estimates!",
+    type: "website",
+  },
+  "/services/sprinkler-installation": {
+    title: "Sprinkler System Installation in Durant, OK | 2B Landscaping",
+    description: "Professional sprinkler system design & installation in Durant, OK. Efficient irrigation solutions. Free estimates!",
+    type: "website",
+  },
+  "/services/sod-installation": {
+    title: "Sod Installation in Durant, OK | 2B Landscaping",
+    description: "Fresh sod installation for instant green lawns in Durant, Oklahoma. Professional soil preparation. Lasting results. Free estimates!",
+    type: "website",
+  },
+  "/services/artificial-turf": {
+    title: "Artificial Turf Installation in Durant, OK | 2B Landscaping",
+    description: "Premium artificial turf installation in Durant, OK. Low-maintenance lawn solutions. Year-round green appearance. Free estimates!",
+    type: "website",
+  },
+  "/services/walkways": {
+    title: "Walkway & Path Installation in Durant, OK | 2B Landscaping",
+    description: "Elegant stone & paver walkways in Durant, Oklahoma. Professional path installation for beauty & safety. Free estimates!",
+    type: "website",
+  },
+  "/services/masonry": {
+    title: "Masonry Services in Durant, OK | 2B Landscaping",
+    description: "Expert masonry work in Durant, Oklahoma. Stone walls, decorative features & structural elements. Quality craftsmanship. Free estimates!",
+    type: "website",
+  },
+  "/services/fountain-installation": {
+    title: "Fountain Installation in Durant, OK | 2B Landscaping",
+    description: "Beautiful water features & fountains in Durant, OK. Add elegance & tranquility to your landscape. Free estimates!",
+    type: "website",
+  },
+  "/services/pond-scrapes": {
+    title: "Pond Installation & Maintenance in Durant, OK | 2B Landscaping",
+    description: "Professional pond design & installation in Durant, Oklahoma. Create serene water features. Expert maintenance. Free estimates!",
+    type: "website",
+  },
+  "/services/christmas-lights": {
+    title: "Christmas Light Installation in Durant, OK | 2B Landscaping",
+    description: "Professional holiday lighting design & installation in Durant, OK. Transform your home into a festive masterpiece. Energy-efficient LED!",
+    type: "website",
+  },
+  "/services/irrigation-installation": {
+    title: "Irrigation System Installation in Durant, OK | 2B Landscaping",
+    description: "Professional irrigation system design & installation in Durant, Oklahoma. Keep your landscape perfectly watered. Free estimates!",
+    type: "website",
+  },
 };
 
 /**

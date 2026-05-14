@@ -14,6 +14,25 @@ interface ServiceCategory {
   projects: ProjectImage[];
 }
 
+// Alt text descriptions for SEO - includes location and service keywords
+const getAltText = (category: string, imageType: "before" | "after", title: string): string => {
+  const categoryAlt: Record<string, Record<string, string>> = {
+    "lawn-care": {
+      before: `${title} - bare lawn before professional lawn care and maintenance in Durant, Oklahoma`,
+      after: `${title} - lush green lawn after expert lawn care services in Durant, OK by 2B Landscaping`,
+    },
+    "landscape-design": {
+      before: `${title} - before custom landscape design project in Durant and Bryan County, Oklahoma`,
+      after: `${title} - after professional landscape design installation in Durant, OK`,
+    },
+    "retaining-walls": {
+      before: `${title} - before stone retaining wall installation in Durant, Oklahoma`,
+      after: `${title} - after professional retaining wall construction in Durant, OK by 2B Landscaping`,
+    },
+  };
+  return categoryAlt[category]?.[imageType] || `${title} - ${imageType} landscaping project in Durant, OK`;
+}
+
 const galleryData: ServiceCategory[] = [
   {
     id: "lawn-care",
@@ -79,13 +98,12 @@ function BeforeAfterSlider({ before, after, title }: { before: string; after: st
       className="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden rounded-lg shadow-lg cursor-col-resize group"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
-    >
-      {/* After Image (Background) */}
-      <img src={after} alt={`${title} - After`} className="absolute inset-0 w-full h-full object-cover" />
+    >      {/* After Image (Background) */}
+      <img src={after} alt={getAltText(activeCategory, "after", title)} className="absolute inset-0 w-full h-full object-cover" />
 
       {/* Before Image (Overlay) */}
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${sliderPosition}%` }}>
-        <img src={before} alt={`${title} - Before`} className="w-full h-full object-cover" />
+        <img src={before} alt={getAltText(activeCategory, "before", title)} className="w-full h-full object-cover" />
       </div>
 
       {/* Slider Handle */}
