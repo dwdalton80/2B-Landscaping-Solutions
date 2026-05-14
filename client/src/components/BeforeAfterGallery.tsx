@@ -72,7 +72,7 @@ const galleryData: ServiceCategory[] = [
   },
 ];
 
-function BeforeAfterSlider({ before, after, title }: { before: string; after: string; title: string }) {
+function BeforeAfterSlider({ before, after, title, category }: { before: string; after: string; title: string; category: string }) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -99,11 +99,11 @@ function BeforeAfterSlider({ before, after, title }: { before: string; after: st
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >      {/* After Image (Background) */}
-      <img src={after} alt={getAltText(activeCategory, "after", title)} className="absolute inset-0 w-full h-full object-cover" />
+      <img src={after} alt={`${title} after - Professional landscaping in Durant, OK`} className="absolute inset-0 w-full h-full object-cover" />
 
       {/* Before Image (Overlay) */}
       <div className="absolute inset-0 overflow-hidden" style={{ width: `${sliderPosition}%` }}>
-        <img src={before} alt={getAltText(activeCategory, "before", title)} className="w-full h-full object-cover" />
+        <img src={before} alt={`${title} before - Landscaping transformation in Durant, Oklahoma`} className="w-full h-full object-cover" />
       </div>
 
       {/* Slider Handle */}
@@ -190,7 +190,7 @@ export default function BeforeAfterGallery() {
         {currentProject && (
           <div className="max-w-4xl mx-auto">
             {/* Before/After Slider */}
-            <BeforeAfterSlider before={currentProject.before} after={currentProject.after} title={currentProject.title} />
+            <BeforeAfterSlider before={currentProject.before} after={currentProject.after} title={currentProject.title} category={activeCategory} />
 
             {/* Project Info */}
             <div className="mt-8 text-center">
