@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { MapView } from "./Map";
 
 interface ServiceAreaMapProps {
@@ -8,7 +8,7 @@ interface ServiceAreaMapProps {
 
 export default function ServiceAreaMap({ 
   title = "Our Service Area",
-  description = "2B Landscaping proudly serves Durant, Oklahoma and surrounding areas in Bryan County"
+  description = "2B Landscaping proudly serves Bryan, Atoka, Carter, and Grayson Counties in Oklahoma"
 }: ServiceAreaMapProps) {
   const mapRef = useRef<google.maps.Map | null>(null);
 
@@ -28,7 +28,7 @@ export default function ServiceAreaMap({
         <div style="font-family: Arial; padding: 10px;">
           <h3 style="margin: 0 0 5px 0; color: #2d5f4f;">2B Landscaping</h3>
           <p style="margin: 0; font-size: 12px; color: #666;">
-            Serving Durant, OK & Bryan County<br/>
+            Serving Bryan, Atoka, Carter & Grayson Counties<br/>
             Phone: (580) 916-2686
           </p>
         </div>
@@ -39,30 +39,92 @@ export default function ServiceAreaMap({
       infoWindow.open(map, mainMarker);
     });
 
-    // Draw service area circle (approximately 15 miles radius)
-    new google.maps.Circle({
-      strokeColor: "#d4a574",
-      strokeOpacity: 0.6,
-      strokeWeight: 2,
-      fillColor: "#d4a574",
-      fillOpacity: 0.15,
-      map: map,
-      center: { lat: 33.7299, lng: -96.8687 },
-      radius: 24140, // approximately 15 miles in meters
-    });
-
-    // Add service area markers for nearby towns
-    const serviceAreas = [
-      { lat: 33.8, lng: -96.85, name: "Bryan County" },
-      { lat: 33.65, lng: -96.9, name: "Calera Area" },
-      { lat: 33.75, lng: -96.75, name: "Mead Area" },
+    // Define service area polygons for each county
+    // Bryan County (approximate bounds)
+    const bryanCountyBounds = [
+      { lat: 33.9, lng: -96.6 },
+      { lat: 33.9, lng: -97.1 },
+      { lat: 33.5, lng: -97.1 },
+      { lat: 33.5, lng: -96.6 },
     ];
 
-    serviceAreas.forEach((area) => {
+    new google.maps.Polygon({
+      paths: bryanCountyBounds,
+      strokeColor: "#d4a574",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#d4a574",
+      fillOpacity: 0.2,
+      map: map,
+    });
+
+    // Atoka County (approximate bounds)
+    const atokaBounds = [
+      { lat: 34.2, lng: -96.4 },
+      { lat: 34.2, lng: -96.9 },
+      { lat: 33.9, lng: -96.9 },
+      { lat: 33.9, lng: -96.4 },
+    ];
+
+    new google.maps.Polygon({
+      paths: atokaBounds,
+      strokeColor: "#d4a574",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#d4a574",
+      fillOpacity: 0.2,
+      map: map,
+    });
+
+    // Carter County (approximate bounds)
+    const carterBounds = [
+      { lat: 33.5, lng: -97.5 },
+      { lat: 33.5, lng: -97.0 },
+      { lat: 33.1, lng: -97.0 },
+      { lat: 33.1, lng: -97.5 },
+    ];
+
+    new google.maps.Polygon({
+      paths: carterBounds,
+      strokeColor: "#d4a574",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#d4a574",
+      fillOpacity: 0.2,
+      map: map,
+    });
+
+    // Grayson County (approximate bounds)
+    const graysonBounds = [
+      { lat: 33.6, lng: -96.4 },
+      { lat: 33.6, lng: -95.9 },
+      { lat: 33.2, lng: -95.9 },
+      { lat: 33.2, lng: -96.4 },
+    ];
+
+    new google.maps.Polygon({
+      paths: graysonBounds,
+      strokeColor: "#d4a574",
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: "#d4a574",
+      fillOpacity: 0.2,
+      map: map,
+    });
+
+    // Add county center markers
+    const countyMarkers = [
+      { lat: 33.7, lng: -96.85, name: "Bryan County" },
+      { lat: 34.05, lng: -96.65, name: "Atoka County" },
+      { lat: 33.3, lng: -97.25, name: "Carter County" },
+      { lat: 33.4, lng: -96.15, name: "Grayson County" },
+    ];
+
+    countyMarkers.forEach((marker) => {
       new google.maps.Marker({
-        position: { lat: area.lat, lng: area.lng },
+        position: { lat: marker.lat, lng: marker.lng },
         map: map,
-        title: area.name,
+        title: marker.name,
       });
     });
   };
@@ -75,7 +137,7 @@ export default function ServiceAreaMap({
       </div>
       <MapView
         initialCenter={{ lat: 33.7299, lng: -96.8687 }}
-        initialZoom={11}
+        initialZoom={9}
         onMapReady={handleMapReady}
         className="w-full h-96 rounded-lg shadow-lg border border-gray-200"
       />
@@ -84,23 +146,23 @@ export default function ServiceAreaMap({
         <ul className="grid md:grid-cols-2 gap-3 text-gray-700">
           <li className="flex items-start gap-2">
             <span className="text-[#d4a574] font-bold">•</span>
-            <span>Durant, Oklahoma (Primary Service Area)</span>
+            <span>Bryan County (Primary Service Area)</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-[#d4a574] font-bold">•</span>
-            <span>Bryan County and Surrounding Areas</span>
+            <span>Atoka County</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-[#d4a574] font-bold">•</span>
-            <span>Calera, Mead, and Nearby Communities</span>
+            <span>Carter County</span>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-[#d4a574] font-bold">•</span>
-            <span>Custom Projects Beyond Service Area</span>
+            <span>Grayson County</span>
           </li>
         </ul>
         <p className="text-sm text-gray-600 mt-4">
-          <strong>Service Radius:</strong> Approximately 15 miles from Durant. We also take on select projects beyond our standard service area. Contact us for availability.
+          <strong>Service Area:</strong> We proudly serve all four counties with full landscaping services including lawn care, design, hardscaping, and irrigation. Contact us for availability on projects outside these areas.
         </p>
       </div>
     </div>
