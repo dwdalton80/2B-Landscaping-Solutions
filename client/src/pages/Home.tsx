@@ -18,6 +18,7 @@ import BeforeAfterGallery from "@/components/BeforeAfterGallery";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ServiceRequestModal from "@/components/ServiceRequestModal";
 import FAQSection from "@/components/FAQSection";
+import ServiceAreaMap from "@/components/ServiceAreaMap";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -53,6 +54,11 @@ export default function Home() {
       <BeforeAfterGallery />
       <TestimonialsSection />
       <FAQSection />
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <ServiceAreaMap />
+        </div>
+      </section>
       <ContactSection />
       <ServiceRequestModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Footer />

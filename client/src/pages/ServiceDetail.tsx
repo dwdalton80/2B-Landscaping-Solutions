@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import ServiceRequestModal from "@/components/ServiceRequestModal";
+import SocialShareButtons from "@/components/SocialShareButtons";
 import { addSchemaMarkup } from "@/lib/schema";
 import { setOGTags } from "@/lib/og-tags";
 
@@ -541,6 +542,15 @@ export function ServiceDetail() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Social Sharing */}
+        <section className="mb-12 pb-8 border-b border-gray-200">
+          <SocialShareButtons 
+            title={service.title}
+            url={window.location.href}
+            description={service.description}
+          />
         </section>
 
         {/* CTA */}
