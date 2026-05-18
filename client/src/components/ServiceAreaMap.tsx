@@ -17,7 +17,7 @@ export default function ServiceAreaMap({
 
     // Add marker for main location (Durant, OK)
     new google.maps.Marker({
-      position: { lat: 33.7299, lng: -96.8687 },
+      position: { lat: 33.7299, lng: -96.3787 },
       map: map,
       title: "2B Landscaping - Durant, OK",
     });
@@ -30,7 +30,7 @@ export default function ServiceAreaMap({
         <p className="text-gray-600">{description}</p>
       </div>
       <MapView
-        initialCenter={{ lat: 33.7299, lng: -96.8687 }}
+        initialCenter={{ lat: 33.7299, lng: -96.3787 }}
         initialZoom={9}
         onMapReady={handleMapReady}
         className="w-full h-96 rounded-lg shadow-lg border border-gray-200"
