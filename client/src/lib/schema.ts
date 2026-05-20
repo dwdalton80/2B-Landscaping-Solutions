@@ -143,7 +143,7 @@ export function getServiceSchema() {
         "Beautiful water features and fountains that add elegance and tranquility to your outdoor space.",
     },
     {
-      name: "Pond Scrapes",
+      name: "Pondscrapes",
       description:
         "Professional pond installation, maintenance, and cleaning to create a serene aquatic environment.",
     },

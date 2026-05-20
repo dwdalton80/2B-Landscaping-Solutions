@@ -14,7 +14,7 @@ const services = [
   "Sod Installation",
   "Masonry",
   "Fountain Installation",
-  "Pond Scrapes",
+  "Pondscrapes",
   "Artificial Turf Installation",
 ];
 

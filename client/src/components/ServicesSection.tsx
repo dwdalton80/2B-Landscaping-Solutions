@@ -105,7 +105,7 @@ const services = [
   {
     id: "pond-scrapes",
     icon: Fish,
-    title: "Pond Scrapes",
+    title: "Pondscrapes",
     description:
       "Professional pond installation, maintenance, and cleaning to create a serene aquatic environment.",
     image: null,
