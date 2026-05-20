@@ -85,6 +85,15 @@ const services = [
     featured: false,
   },
   {
+    id: "outdoor-lighting",
+    icon: Lamp,
+    title: "Outdoor Landscape and Patio Lighting",
+    description:
+      "Professional outdoor lighting design and installation to enhance your landscape's beauty and functionality at night.",
+    image: null,
+    featured: false,
+  },
+  {
     id: "christmas-lights",
     icon: Lightbulb,
     title: "Christmas Light Installation",
@@ -117,15 +126,6 @@ const services = [
     title: "Artificial Turf Installation",
     description:
       "High-quality artificial turf installation for a lush, low-maintenance lawn that looks beautiful year-round.",
-    image: null,
-    featured: false,
-  },
-  {
-    id: "outdoor-lighting",
-    icon: Lamp,
-    title: "Outdoor Landscape and Patio Lighting",
-    description:
-      "Professional outdoor lighting design and installation to enhance your landscape's beauty and functionality at night.",
     image: null,
     featured: false,
   },
