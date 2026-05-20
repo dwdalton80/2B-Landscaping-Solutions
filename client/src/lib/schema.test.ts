@@ -92,7 +92,7 @@ describe("Schema Markup Utilities", () => {
       const services = getServiceSchema();
 
       expect(Array.isArray(services)).toBe(true);
-      expect(services.length).toBe(12);
+      expect(services.length).toBe(13);
     });
 
     it("should include all required service fields", () => {

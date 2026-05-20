@@ -152,6 +152,11 @@ export function getServiceSchema() {
       description:
         "High-quality artificial turf installation for a lush, low-maintenance lawn that looks beautiful year-round.",
     },
+    {
+      name: "Outdoor Landscape and Patio Lighting",
+      description:
+        "Professional outdoor lighting design and installation to enhance your landscape's beauty and functionality at night.",
+    },
   ];
 
   return services.map((service) => ({

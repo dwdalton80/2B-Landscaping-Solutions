@@ -16,6 +16,7 @@ const services = [
   "Fountain Installation",
   "Pondscrapes",
   "Artificial Turf Installation",
+  "Outdoor Landscape and Patio Lighting",
 ];
 
 const navLinks = [

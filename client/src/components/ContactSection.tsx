@@ -280,6 +280,7 @@ export default function ContactSection() {
                     <option value="fountain">Fountain Installation</option>
                     <option value="pond">Pondscrapes</option>
                     <option value="artificial-turf">Artificial Turf Installation</option>
+                    <option value="outdoor-lighting">Outdoor Landscape and Patio Lighting</option>
                     <option value="other">Other / Multiple Services</option>
                   </select>
                 </div>

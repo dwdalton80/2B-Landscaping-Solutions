@@ -64,3 +64,10 @@
 - [x] Create local service area map component with service coverage zones
 - [x] Add map to About page or dedicated service area page
 - [x] Test social sharing and map functionality
+
+## New Services
+- [x] Add "Outdoor Landscape and Patio Lighting" service to services grid
+- [x] Create detail page for Outdoor Landscape and Patio Lighting service
+- [x] Update contact form dropdown with new service option
+- [x] Update footer services list with new service
+- [x] Update schema.ts with new service

@@ -406,6 +406,39 @@ const servicePages: Record<string, ServicePageConfig> = {
     cta: "Get Your Christmas Lighting Quote",
     relatedServices: ["landscape-design"],
   },
+  "outdoor-lighting": {
+    id: "outdoor-lighting",
+    title: "Outdoor Landscape and Patio Lighting in Durant, OK",
+    subtitle: "Professional Outdoor Lighting Design & Installation",
+    description:
+      "Transform your outdoor spaces with professional landscape and patio lighting. From accent lighting to pathway illumination, we create stunning outdoor lighting solutions that enhance beauty and functionality.",
+    benefits: [
+      "Enhanced landscape beauty and curb appeal",
+      "Improved safety and security",
+      "Extended outdoor living season",
+      "Energy-efficient LED systems",
+      "Increased property value",
+      "Custom design options",
+    ],
+    process: [
+      "Initial consultation and site assessment",
+      "Custom lighting design creation",
+      "Material selection and planning",
+      "Professional installation",
+      "System testing and adjustments",
+      "Maintenance and support",
+    ],
+    features: [
+      "LED accent lighting",
+      "Pathway and step lighting",
+      "Patio and deck illumination",
+      "Architectural lighting",
+      "Smart controls available",
+      "Professional installation",
+    ],
+    cta: "Get Your Outdoor Lighting Quote",
+    relatedServices: ["landscape-design", "patios-hardscapes"],
+  },
 };
 
 export function ServiceDetail() {

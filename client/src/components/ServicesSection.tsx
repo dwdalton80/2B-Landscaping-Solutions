@@ -4,7 +4,7 @@
    ============================================================ */
 import { useEffect, useRef } from "react";
 import { useLocation } from "wouter";
-import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench, Lightbulb, Waves, Fish, Grid3x3 } from "lucide-react";
+import { Sprout, Layers, Droplets, Hammer, Footprints, Shovel, TreePine, Wrench, Lightbulb, Waves, Fish, Grid3x3, Lamp } from "lucide-react";
 
 const LAWN_CARE_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_lawn_care-LtBfYjKFirKQnydPLnTRnc.webp";
 const LANDSCAPE_DESIGN_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663585381002/i5QjDX2qxD7AFjjNdVDudk/service_landscape_design-WjNbJhkGrifXBVVZ3zmuAG.webp";
@@ -117,6 +117,15 @@ const services = [
     title: "Artificial Turf Installation",
     description:
       "High-quality artificial turf installation for a lush, low-maintenance lawn that looks beautiful year-round.",
+    image: null,
+    featured: false,
+  },
+  {
+    id: "outdoor-lighting",
+    icon: Lamp,
+    title: "Outdoor Landscape and Patio Lighting",
+    description:
+      "Professional outdoor lighting design and installation to enhance your landscape's beauty and functionality at night.",
     image: null,
     featured: false,
   },
