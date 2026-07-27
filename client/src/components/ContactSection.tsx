@@ -5,12 +5,12 @@
    ============================================================ */
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Facebook, Clock, Send, CheckCircle } from "lucide-react";
-import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
 export default function ContactSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -36,23 +36,49 @@ export default function ContactSection() {
     return () => observer.disconnect();
   }, []);
 
-  const sendEstimate = trpc.contact.sendEstimate.useMutation();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    
     try {
-      await sendEstimate.mutateAsync({
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        service: formData.service,
-        message: formData.message,
+      // Send to Formspree
+      const response = await fetch("https://formspree.io/f/xvgozwzr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          service: formData.service,
+          message: formData.message,
+        }),
       });
-      setSubmitted(true);
-      toast.success("Estimate request sent! We'll contact you soon.");
+
+      if (response.ok) {
+        setSubmitted(true);
+        toast.success("Estimate request sent! We'll contact you soon.");
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({
+            name: "",
+            phone: "",
+            email: "",
+            service: "",
+            message: "",
+          });
+        }, 3000);
+      } else {
+        toast.error("Failed to send estimate request. Please try again or call us.");
+      }
     } catch (error) {
       toast.error("Failed to send estimate request. Please try again or call us.");
       console.error("Error sending estimate:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -302,16 +328,16 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  disabled={sendEstimate.isPending}
+                  disabled={isLoading}
                   className="w-full flex items-center justify-center gap-2 bg-[oklch(0.28_0.08_145)] hover:bg-[oklch(0.38_0.09_145)] disabled:opacity-50 disabled:cursor-not-allowed text-white font-body font-semibold py-3.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-base"
                 >
                   <Send className="w-4 h-4" />
-                  {sendEstimate.isPending ? "Sending..." : "Send My Request"}
+                  {isLoading ? "Sending..." : "Send My Request"}
                 </button>
 
                 <p className="font-body text-xs text-[oklch(0.52_0.04_55)] text-center">
                   We typically respond within 24 hours. For urgent requests, call{" "}
-                  <a href="tel:5809162686" className="text-[oklch(0.28_0.08_145)] font-medium">
+                  <a href="tel:5809162686" className="text-[oklch(0.28_0.08_145)] font-semibold">
                     (580) 916-2686
                   </a>
                 </p>

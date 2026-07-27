@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { X, Phone, Mail, MapPin } from "lucide-react";
-import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
 interface ServiceRequestModalProps {
@@ -23,7 +22,7 @@ export default function ServiceRequestModal({
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const sendEstimate = trpc.contact.sendEstimate.useMutation();
+  const [isLoading, setIsLoading] = useState(false);
 
   const services = [
     "Lawn Care",
@@ -52,50 +51,63 @@ export default function ServiceRequestModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
-      await sendEstimate.mutateAsync({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
+      // Send to Formspree
+      const response = await fetch("https://formspree.io/f/xvgozwzr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        }),
       });
 
-      setSubmitted(true);
-      toast.success("Service request sent! We'll contact you soon.");
+      if (response.ok) {
+        setSubmitted(true);
+        toast.success("Service request sent! We'll contact you soon.");
 
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: selectedService,
-          message: "",
-        });
-        onClose();
-      }, 2000);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            service: selectedService,
+            message: "",
+          });
+          onClose();
+        }, 2000);
+      } else {
+        toast.error("Failed to send request. Please try again or call us.");
+      }
     } catch (error) {
       toast.error("Failed to send request. Please try again or call us.");
       console.error("Error sending request:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-amber-600 to-amber-700 text-white p-6 flex justify-between items-center">
-          <h2 className="text-2xl font-bold">Quick Service Request</h2>
+        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-gray-900">Quick Request</h2>
           <button
             onClick={onClose}
-            className="hover:bg-amber-800 p-1 rounded transition-colors"
-            aria-label="Close modal"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
           >
-            <X size={24} />
+            <X className="w-6 h-6" />
           </button>
         </div>
 
@@ -103,79 +115,92 @@ export default function ServiceRequestModal({
         <div className="p-6">
           {submitted ? (
             <div className="text-center py-8">
-              <div className="mb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-green-600 text-2xl">✓</span>
-                </div>
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-8 h-8 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Thank You!
+                Request Sent!
               </h3>
-              <p className="text-gray-600">
-                We've received your request and will contact you soon.
+              <p className="text-gray-600 mb-4">
+                We'll get back to you within 24 hours.
+              </p>
+              <p className="text-sm text-gray-500">
+                Or call us:{" "}
+                <a
+                  href="tel:5809162686"
+                  className="text-blue-600 font-semibold hover:underline"
+                >
+                  (580) 916-2686
+                </a>
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Name */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Your Name *
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Name *
                 </label>
                 <input
                   type="text"
                   name="name"
+                  required
                   value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
-                  placeholder="John Doe"
+                  placeholder="Your name"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Email */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address *
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Email *
                 </label>
                 <input
                   type="email"
                   name="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
-                  placeholder="john@example.com"
+                  placeholder="your@email.com"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Phone */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Phone Number *
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Phone
                 </label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
-                  placeholder="(580) 123-4567"
+                  placeholder="(580) 000-0000"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Service */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Service Needed *
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Service
                 </label>
                 <select
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">Select a service...</option>
                   {services.map((service) => (
@@ -186,58 +211,61 @@ export default function ServiceRequestModal({
                 </select>
               </div>
 
-              {/* Message */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Project Details
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                  Message *
                 </label>
                 <textarea
                   name="message"
+                  required
                   value={formData.message}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition resize-none"
                   placeholder="Tell us about your project..."
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                 />
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
-                disabled={sendEstimate.isPending}
-                className="w-full bg-amber-600 text-white py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                disabled={isLoading}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold py-2 rounded-lg transition-colors"
               >
-                {sendEstimate.isPending ? "Sending..." : "Send Request"}
+                {isLoading ? "Sending..." : "Send Request"}
               </button>
 
-              {/* Contact Info */}
-              <div className="border-t pt-4 mt-4">
-                <p className="text-xs text-gray-600 mb-3 font-semibold">
-                  Or contact us directly:
-                </p>
-                <div className="space-y-2">
-                  <a
-                    href="tel:(580)916-2686"
-                    className="flex items-center gap-2 text-sm text-amber-700 hover:text-amber-800 transition-colors"
-                  >
-                    <Phone size={16} />
-                    (580) 916-2686
-                  </a>
-                  <a
-                    href="mailto:info@2blandscapingsolutions.com"
-                    className="flex items-center gap-2 text-sm text-amber-700 hover:text-amber-800 transition-colors"
-                  >
-                    <Mail size={16} />
-                    info@2blandscapingsolutions.com
-                  </a>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
-                    <MapPin size={16} />
-                    Durant, OK & Surrounding Areas
-                  </div>
-                </div>
-              </div>
+              <p className="text-xs text-gray-500 text-center">
+                We typically respond within 24 hours.
+              </p>
             </form>
           )}
+        </div>
+
+        {/* Footer with contact info */}
+        <div className="bg-gray-50 border-t border-gray-200 p-6">
+          <p className="text-xs text-gray-600 font-semibold mb-3">
+            Or contact us directly:
+          </p>
+          <div className="space-y-2 text-sm">
+            <a
+              href="tel:5809162686"
+              className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              (580) 916-2686
+            </a>
+            <a
+              href="mailto:2b.landscaping@gmail.com"
+              className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              2b.landscaping@gmail.com
+            </a>
+            <div className="flex items-center gap-2 text-gray-700">
+              <MapPin className="w-4 h-4" />
+              Durant, OK 74701
+            </div>
+          </div>
         </div>
       </div>
     </div>
