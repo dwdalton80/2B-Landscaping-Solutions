@@ -1,39 +1,24 @@
-import { useRef } from "react";
-import { MapView } from "./Map";
-
 interface ServiceAreaMapProps {
   title?: string;
   description?: string;
 }
 
-export default function ServiceAreaMap({ 
+export default function ServiceAreaMap({
   title = "Our Service Area",
-  description = "2B Landscaping proudly serves Bryan, Atoka, Carter, and Grayson Counties in Oklahoma"
+  description = "2B Landscaping proudly serves Bryan, Atoka, Carter, and Grayson Counties in Oklahoma",
 }: ServiceAreaMapProps) {
-  const mapRef = useRef<google.maps.Map | null>(null);
-
-  const handleMapReady = (map: google.maps.Map) => {
-    mapRef.current = map;
-
-    // Add marker for main location (Durant, OK)
-    new google.maps.Marker({
-      position: { lat: 33.7299, lng: -96.3787 },
-      map: map,
-      title: "2B Landscaping - Durant, OK",
-    });
-  };
-
   return (
     <div className="w-full">
       <div className="mb-6">
         <h2 className="text-3xl font-bold text-[#2d5f4f] mb-2">{title}</h2>
         <p className="text-gray-600">{description}</p>
       </div>
-      <MapView
-        initialCenter={{ lat: 33.7299, lng: -96.3787 }}
-        initialZoom={9}
-        onMapReady={handleMapReady}
+      <iframe
+        title="2B Landscaping service area map"
         className="w-full h-96 rounded-lg shadow-lg border border-gray-200"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Durant,+OK&z=9&output=embed"
       />
       <div className="mt-6 bg-gray-50 rounded-lg p-6">
         <h3 className="text-lg font-bold text-[#2d5f4f] mb-3">Service Coverage</h3>

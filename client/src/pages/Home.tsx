@@ -4,7 +4,6 @@
    Sections: Hero → Services → About → WhyChooseUs → Gallery → Contact → Footer
    ============================================================ */
 import React from "react";
-import { useAuth } from "@/_core/hooks/useAuth";
 import { setOGTags } from "@/lib/og-tags";
 import { addSchemaMarkup, getLocalBusinessSchema, getOrganizationSchema } from "@/lib/schema";
 import Navbar from "@/components/Navbar";
@@ -24,9 +23,6 @@ import Footer from "@/components/Footer";
 
 // Schema markup is added in useEffect for better performance
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   // Set SEO title, Open Graph tags, and schema markup
