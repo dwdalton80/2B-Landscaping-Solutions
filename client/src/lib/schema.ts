@@ -26,6 +26,13 @@ export function getLocalBusinessSchema() {
     url: "https://2blandscapingsolutions.com",
     telephone: "(580) 916-2686",
     email: "2b.landscaping@gmail.com",
+    image: "https://2blandscapingsolutions.com/manus-storage/logo-optimized_d414109b.webp",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://2blandscapingsolutions.com/manus-storage/logo-optimized_d414109b.webp",
+      width: 250,
+      height: 250,
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: "Hwy 48/78",
@@ -183,6 +190,7 @@ export function getOrganizationSchema() {
     "@type": "Organization",
     name: "2B Landscaping",
     url: "https://2blandscapingsolutions.com",
+    logo: "https://2blandscapingsolutions.com/manus-storage/logo-optimized_d414109b.webp",
     description:
       "Professional landscaping company serving Durant, Oklahoma and Bryan County with expert lawn care, landscape design, and hardscape services.",
     sameAs: ["https://www.facebook.com/2blandscaping/"],
